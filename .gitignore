@@ -66,12 +66,8 @@ key.pem
 *.key
 
 # === ARCHIVOS DE EJECUCIÓN ===
-run.sh
-stop.sh
-install.sh
 tail
-*.sh.e*
-*.sh~
+
 
 # === ARCHIVOS DE PRUEBA LOCALES ===
 test/
