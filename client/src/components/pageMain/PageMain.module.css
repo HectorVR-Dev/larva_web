@@ -1,0 +1,6 @@
+.pageMain {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-bg-primary);
+    min-height: calc(100vh - 60px); /* Ajusta según la altura de la barra de navegación */
+}

@@ -1,0 +1,102 @@
+# === PYTHON ===
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+env*
+venv*
+
+# Variables de entorno
+.env
+.env.*
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Logs y procesos
+*.log
+*.pid
+python_dev.log
+npm_dev.log
+
+# Bases de datos locales y embeddings (Chroma, etc.)
+chroma_db*/
+chroma.sqlite3
+*.bin
+*.db
+*.sqlite3
+
+# Modelos pesados (YOLO, etc.)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+models/
+weights/
+
+# === NODE / VITE / REACT ===
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Vite
+.vite/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# === CERTIFICADOS LOCALES ===
+cert.pem
+key.pem
+*.crt
+*.key
+
+# === ARCHIVOS DE EJECUCIÓN ===
+run.sh
+stop.sh
+install.sh
+tail
+*.sh.e*
+*.sh~
+
+# === ARCHIVOS DE PRUEBA LOCALES ===
+test/
+test_*/
+*.test.py
+local_test.py
+api_test.py
+yolo_test.py
+
+# === IDE / Editores ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# === SISTEMA ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === OTROS ===
+log.txt
+*.tmp
+*.bak
+*.cache
+*.egg-info/
+*.dist-info/

@@ -1,0 +1,40 @@
+# === DEPENDENCIAS PRINCIPALES (requeridas para el proyecto) ===
+# === LANGCHAIN CORE ===
+langchain-core>=0.2.0
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-huggingface>=0.0.1
+
+# === SPLITTERS & VECTORSTORES ===
+langchain-text-splitters>=0.2.0
+langchain-chroma>=0.1.0
+
+# Document Loaders
+unstructured>=0.15.0
+markdown>=3.4
+
+# === WebSocket + API ===
+aiohttp>=3.9.0
+python-socketio>=5.11.0
+
+# === MODELOS ===
+transformers>=4.40.0
+torch>=2.0.0
+bitsandbytes>=0.41.0
+accelerate>=0.24.0
+sentence-transformers>=5.1.2
+
+# === OTROS ===
+python-dotenv>=1.0.0
+huggingface-hub>=0.20.0
+
+
+# === DEPENDENCIAS OPCIONALES (solo para notebooks / desarrollo local) ===
+# Descomenta las siguientes líneas si usas Jupyter Notebook
+# ipython>=8.0.0
+# ipykernel>=6.0.0
+# jupyter>=1.0.0
+# notebook>=6.0.0
+
+# === MÓDULO LOCAL ===
+# utils  # Módulo local, no se instala vía pip
