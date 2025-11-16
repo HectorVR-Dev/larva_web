@@ -1,4 +1,3 @@
-# build_db.py
 import os
 import glob
 from pathlib import Path
@@ -15,9 +14,33 @@ CHROMA_DIR = "./chroma_db"
 EMB_MODEL = "sentence-transformers/multi-qa-mpnet-base-cos-v1"
 FORCE_REBUILD = True  # Cambia a False para evitar reconstrucción
 
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 100
+CHUNK_SIZE = 150
+CHUNK_OVERLAP = 30
 # =========================================================
+
+# ============================================
+# METADATOS MANUALES POR DOCUMENTO
+# ============================================
+METADATA_MAP = {
+    "ascaris.md": {
+        "category": "nematodo",
+        "species": "ascaris lumbricoides"
+    },
+    "trichuris.md": {
+        "category": "cestodo",
+        "species": "trichuris trichiura"
+    },
+    "fasciola.md": {
+        "category": "trematodo",
+        "species": "fasciola hepatica"
+    },
+    "taenia.md": {
+        "category": "cestodo",
+        "species": "taenia saginata"
+    },
+    # Agregar más archivos según sea necesario
+}
+# ============================================
 
 
 def main():
@@ -42,15 +65,28 @@ def main():
     print("\nCargando y procesando documentos...")
     documents = []
     for file_path in md_files:
+        filename = os.path.basename(file_path)
+
         loader = UnstructuredMarkdownLoader(
             file_path,
             mode="single",
             strategy="fast"
         )
         docs = loader.load()
+
+        # ============================================
+        # APLICACIÓN DE METADATOS PERSONALIZADOS
+        # ============================================
         for doc in docs:
-            doc.metadata["source"] = os.path.basename(file_path)
+            doc.metadata["source"] = filename
             doc.metadata["file_path"] = file_path
+
+            # agrega category y species si existen
+            if filename in METADATA_MAP:
+                for key, value in METADATA_MAP[filename].items():
+                    doc.metadata[key] = value
+
+        # Quitar metadatos complejos
         documents.extend(filter_complex_metadata(docs))
 
     print(f"Documentos cargados: {len(documents)}")
@@ -78,13 +114,10 @@ def main():
     vectorstore = Chroma.from_documents(
         documents=chunks,
         embedding=embedder,
-        persist_directory=CHROMA_DIR  # ← Persistencia automática
+        persist_directory=CHROMA_DIR
     )
 
-    # ELIMINA ESTA LÍNEA:
-    # vectorstore.persist()  # ← YA NO EXISTE
-
-    print(f"Base de datos creada exitosamente!")
+    print("Base de datos creada exitosamente!")
     print(f"   → Total de chunks: {vectorstore._collection.count()}")
     print(f"   → Ubicación: {CHROMA_DIR}")
 

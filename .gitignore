@@ -76,6 +76,7 @@ test_*/
 local_test.py
 api_test.py
 yolo_test.py
+test_*
 
 # === IDE / Editores ===
 .idea/
