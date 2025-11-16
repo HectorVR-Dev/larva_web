@@ -1,517 +1,91 @@
 # Trichuris trichiura - Tricocéfalo Humano
-
 ## 1. Introducción y Clasificación Taxonómica
-
-**Trichuris trichiura** (Linnaeus, 1771) es un nematodo intestinal que parasita el intestino grueso humano, causando la enfermedad conocida como tricuriasis o tricocefalosis. Es uno de los helmintos transmitidos por el suelo (STH, por sus siglas en inglés) más prevalentes a nivel mundial.
-
-### Clasificación Taxonómica
-- **Reino:** Animalia
-- **Filo:** Nematoda
-- **Clase:** Enoplea (anteriormente Adenophorea)
-- **Orden:** Trichurida (Trichinellida)
-- **Familia:** Trichuridae
-- **Género:** *Trichuris*
-- **Especie:** *Trichuris trichiura*
-
-**Sinonimia:** *Trichocephalus trichiurus*, *Trichocephalus hominis*
-
-**Nombre común:** Tricocéfalo, whipworm (inglés), debido a su morfología característica que asemeja un látigo.
-
+Trichuris trichiura (Linnaeus, 1771) es un nematodo intestinal que parasita el intestino grueso humano, causando la enfermedad conocida como tricuriasis o tricocefalosis. Es uno de los helmintos transmitidos por el suelo (STH, por sus siglas en inglés) más prevalentes a nivel mundial. Trichuris trichiura pertenece al reino Animalia, filo Nematoda, clase Enoplea (anteriormente Adenophorea), orden Trichurida (Trichinellida), familia Trichuridae, género Trichuris y especie Trichuris trichiura. Su sinonimia incluye Trichocephalus trichiurus y Trichocephalus hominis. El nombre común es tricocéfalo o whipworm en inglés, debido a su morfología característica que asemeja un látigo.
 ---
-
 ## 2. Morfología
-
 ### 2.1 Adultos
-
-**Dimorfismo sexual:** Presente y marcado.
-
-#### Hembra
-- **Longitud:** 35-50 mm
-- **Forma:** Extremo anterior delgado y filiforme (3/5 partes del cuerpo), extremo posterior más grueso y recto
-- **Esófago:** Esticosoma, estructura celular característica del género, ocupa todo el segmento anterior
-- **Vulva:** Localizada en la unión del segmento delgado con el grueso
-- **Útero:** Contiene huevos en diferentes estadios de desarrollo
-- **Ano:** Terminal
-
-#### Macho
-- **Longitud:** 30-45 mm (ligeramente menor que la hembra)
-- **Forma:** Similar a la hembra, pero con extremo posterior enrollado ventralmente (360°)
-- **Espícula:** Una sola espícula copulatoria protráctil rodeada por una vaina espinosa
-- **Abertura cloacal:** En el extremo posterior enrollado
-
+Presenta dimorfismo sexual marcado. La hembra mide entre 35 y 50 mm de longitud, con forma de extremo anterior delgado y filiforme que ocupa 3/5 partes del cuerpo y extremo posterior más grueso y recto, esófago en forma de esticosoma que es una estructura celular característica del género y ocupa todo el segmento anterior, vulva localizada en la unión del segmento delgado con el grueso, útero que contiene huevos en diferentes estadios de desarrollo y ano terminal. El macho mide entre 30 y 45 mm de longitud, siendo ligeramente menor que la hembra, con forma similar a la hembra pero extremo posterior enrollado ventralmente en 360°, una sola espícula copulatoria protráctil rodeada por una vaina espinosa y abertura cloacal en el extremo posterior enrollado.
 ### 2.2 Huevos
-
-Los huevos de *T. trichiura* presentan características morfológicas muy distintivas que facilitan su identificación microscópica.
-
-**Características:**
-- **Forma:** Elipsoidal u ovalada, semejante a un balón de fútbol americano o barril
-- **Tamaño:** 50-54 μm de longitud × 22-24 μm de ancho
-- **Cubierta:** Doble capa, lisa, café-amarillenta
-- **Polos:** Presenta dos prominencias polares transparentes en forma de tapón mucoso (operculares), característica patognomónica
-- **Contenido:** Al momento de la oviposición contiene una célula embrionaria única (no segmentada)
-- **Cubierta externa:** Proteica, resistente a condiciones ambientales adversas
-
+Los huevos de T. trichiura presentan características morfológicas muy distintivas que facilitan su identificación microscópica. Tienen forma elipsoidal u ovalada semejante a un balón de fútbol americano o barril, miden entre 50 y 54 μm de longitud por 22 a 24 μm de ancho, con cubierta de doble capa lisa y café-amarillenta, polos con dos prominencias polares transparentes en forma de tapón mucoso (operculares) que es una característica patognomónica, contenido de una célula embrionaria única no segmentada al momento de la oviposición y cubierta externa proteica resistente a condiciones ambientales adversas.
 ### 2.3 Estadios Larvarios
-
-El desarrollo larvario ocurre **dentro del huevo** en el ambiente:
-
-- **L1 (Larva de primer estadio):** Se desarrolla dentro del huevo en 15-30 días bajo condiciones óptimas (temperatura 25-30°C, humedad >70%)
-- **L2 (Larva infectiva):** Muda dentro del huevo, es el estadio infectivo para el humano
-- Las larvas permanecen viables en el huevo por meses o años en condiciones favorables
-
+El desarrollo larvario ocurre dentro del huevo en el ambiente. La L1 o larva de primer estadio se desarrolla dentro del huevo en 15 a 30 días bajo condiciones óptimas de temperatura entre 25 y 30°C y humedad superior al 70%. La L2 o larva infectiva muda dentro del huevo y es el estadio infectivo para el humano. Las larvas permanecen viables en el huevo por meses o años en condiciones favorables.
 ---
-
 ## 3. Ciclo de Vida
-
-*Trichuris trichiura* presenta un **ciclo de vida directo monoxénico** (un solo hospedero) sin requerimiento de hospederos intermediarios.
-
+Trichuris trichiura presenta un ciclo de vida directo monoxénico con un solo hospedero sin requerimiento de hospederos intermediarios.
 ### Fases del Ciclo
-
-1. **Fase Ambiental (Desarrollo Externo)**
-   - Los adultos en el ciego y colon liberan huevos no embrionados en las heces
-   - Excreción: 3,000-20,000 huevos/día/hembra
-   - En suelo húmedo y cálido, el huevo embriona en 15-30 días
-   - Desarrollo: célula única → mórula → L1 → L2 (larva infectiva)
-   - Los huevos con L2 permanecen viables por meses-años en el ambiente
-
-2. **Infección (Transmisión Fecal-Oral)**
-   - Ingestión de huevos embrionados con L2 (agua, alimentos contaminados, geofagia)
-   - Los huevos son resistentes a jugos gástricos
-
-3. **Fase en el Hospedero**
-   - **Intestino delgado:** Los huevos eclosionan liberando L2
-   - **Migración:** Las larvas migran hacia el ciego (no hay migración tisular/pulmonar)
-   - **Penetración:** Las larvas penetran superficialmente la mucosa del ciego y colon ascendente
-   - **Desarrollo:** L2 → L3 → L4 → Adulto
-   - **Maduración:** 60-90 días post-infección
-   - **Localización definitiva:** Adultos embebidos en la mucosa del ciego, colon ascendente y ocasionalmente recto
-   - **Posición característica:** Extremo anterior filiforme penetra la mucosa intestinal, extremo posterior libre en el lumen
-   - **Longevidad:** 1-3 años (puede alcanzar hasta 5-7 años)
-
+En la fase ambiental o desarrollo externo, los adultos en el ciego y colon liberan huevos no embrionados en las heces con una excreción de 3,000 a 20,000 huevos por día por hembra. En suelo húmedo y cálido, el huevo embriona en 15 a 30 días con desarrollo de célula única a mórula, luego a L1 y a L2 que es la larva infectiva. Los huevos con L2 permanecen viables por meses a años en el ambiente. La infección ocurre por transmisión fecal-oral mediante ingestión de huevos embrionados con L2 en agua o alimentos contaminados o por geofagia, siendo los huevos resistentes a jugos gástricos. En la fase en el hospedero, los huevos eclosionan en el intestino delgado liberando L2. Las larvas migran hacia el ciego sin migración tisular o pulmonar. Penetran superficialmente la mucosa del ciego y colon ascendente. El desarrollo es de L2 a L3, L4 y adulto. La maduración ocurre entre 60 y 90 días post-infección. La localización definitiva es con adultos embebidos en la mucosa del ciego, colon ascendente y ocasionalmente recto, en posición característica con extremo anterior filiforme penetrando la mucosa intestinal y extremo posterior libre en el lumen. La longevidad es de 1 a 3 años pudiendo alcanzar hasta 5 a 7 años.
 ### Particularidades
-- **No hay fase pulmonar** (a diferencia de *Ascaris* y anquilostomas)
-- **No hay migración tisular extensa**
-- **Ciclo completo:** 90 días aproximadamente
-- **Autoinfección:** No ocurre (requiere desarrollo ambiental)
-
+No hay fase pulmonar a diferencia de Ascaris y anquilostomas. No hay migración tisular extensa. El ciclo completo dura aproximadamente 90 días. No ocurre autoinfección ya que requiere desarrollo ambiental.
 ---
-
 ## 4. Epidemiología
-
 ### 4.1 Distribución Geográfica
-
-*T. trichiura* presenta distribución cosmopolita con predominio en:
-
-**Zonas endémicas:**
-- América Latina (especialmente zonas rurales)
-- África Subsahariana
-- Sudeste Asiático
-- India subcontinental
-- Islas del Pacífico
-- Sur de China
-
-**Prevalencia global:** 360-513 millones de personas infectadas (estimaciones 2010-2023)
-
+T. trichiura presenta distribución cosmopolita con predominio en zonas endémicas como América Latina especialmente en zonas rurales, África Subsahariana, Sudeste Asiático, India subcontinental, Islas del Pacífico y sur de China. La prevalencia global es de 360 a 513 millones de personas infectadas según estimaciones de 2010 a 2023.
 ### 4.2 Factores de Riesgo
-
-#### Ambientales
-- Clima tropical y subtropical (temperatura 25-30°C, humedad >70%)
-- Suelos arcillosos que retienen humedad
-- Saneamiento deficiente
-- Contaminación fecal del suelo y agua
-- Uso de excretas humanas como fertilizante (agricultura)
-
-#### Socioeconómicos
-- Pobreza extrema
-- Hacinamiento
-- Falta de agua potable
-- Ausencia de letrinas/sistemas de alcantarillado
-- Bajo nivel educativo
-- Prácticas de higiene inadecuadas
-
-#### Comportamentales
-- Geofagia (especialmente en niños)
-- Consumo de vegetales crudos mal lavados
-- Defecación al aire libre
-- Caminar descalzo (menor relevancia que en anquilostomiasis)
-
+Los factores ambientales incluyen clima tropical y subtropical con temperatura entre 25 y 30°C y humedad superior al 70%, suelos arcillosos que retienen humedad, saneamiento deficiente, contaminación fecal del suelo y agua y uso de excretas humanas como fertilizante en agricultura. Los factores socioeconómicos abarcan pobreza extrema, hacinamiento, falta de agua potable, ausencia de letrinas o sistemas de alcantarillado, bajo nivel educativo y prácticas de higiene inadecuadas. Los factores comportamentales comprenden geofagia especialmente en niños, consumo de vegetales crudos mal lavados, defecación al aire libre y caminar descalzo con menor relevancia que en anquilostomiasis.
 ### 4.3 Poblaciones Afectadas
-
-**Grupos de mayor riesgo:**
-- **Niños edad escolar (5-15 años):** Mayor prevalencia e intensidad de infección
-- **Preescolares:** Geofagia, higiene deficiente
-- **Agricultores:** Contacto con suelo contaminado
-- **Comunidades rurales marginadas**
-
-**Comorbilidad:** Frecuentemente coinfectado con *Ascaris lumbricoides* y anquilostomas (infecciones polipara sitarias).
-
+Los grupos de mayor riesgo son niños en edad escolar entre 5 y 15 años con mayor prevalencia e intensidad de infección, preescolares por ge bronofagia e higiene deficiente, agricultores por contacto con suelo contaminado y comunidades rurales marginadas. Frecuentemente hay comorbilidad con coinfección por Ascaris lumbricoides y anquilostomas en infecciones poliparasitarias.
 ---
-
 ## 5. Patogenia y Fisiopatología
-
 ### 5.1 Mecanismos de Daño
-
-#### Daño Mecánico
-- **Inserción en la mucosa:** El extremo anterior filiforme penetra la lámina propia
-- **Destrucción de epitelio:** Pérdida de células epiteliales, erosión de la mucosa
-- **Formación de túneles sincitiales:** Los parásitos crean canales en el epitelio
-- **Prolapso rectal:** En infecciones masivas, el peso de parásitos colgantes puede causar prolapso (especialmente en niños)
-
-#### Daño Hemático
-- **Hematofagia:** Cada parásito adulto consume aproximadamente 0.005 mL de sangre/día
-- **Pérdida sanguínea crónica:** En infecciones intensas (>200 parásitos) puede alcanzar 2-4 mL/día
-- **Anemia ferropénica:** Por pérdida crónica de sangre y alteración en absorción de hierro
-
-#### Daño Inflamatorio
-- **Infiltrado inflamatorio:** Eosinófilos, linfocitos, células plasmáticas en lámina propia
-- **Colitis focal:** Erosiones, edema, hiperemia en sitios de adherencia
-- **Producción de citoquinas:** Respuesta Th2 (IL-4, IL-5, IL-13)
-
-#### Daño Nutricional
-- **Malabsorción:** Alteración de la función absortiva intestinal
-- **Reducción de ingesta:** Anorexia secundaria
-- **Pérdida proteica:** Exudación por mucosa dañada
-
+El daño mecánico incluye inserción en la mucosa con el extremo anterior filiforme penetrando la lámina propia, destrucción de epitelio con pérdida de células epiteliales y erosión de la mucosa, formación de túneles sincitiales creados por los parásitos en el epitelio y prolapso rectal en infecciones masivas donde el peso de parásitos colgantes puede causarlo especialmente en niños. El daño hemático abarca hematofagia con cada parásito adulto consumiendo aproximadamente 0.005 mL de sangre por día, pérdida sanguínea crónica que en infecciones intensas con más de 200 parásitos puede alcanzar 2 a 4 mL por día y anemia ferropénica por pérdida crónica de sangre y alteración en absorción de hierro. El daño inflamatorio involucra infiltrado inflamatorio con eosinófilos, linfocitos y células plasmáticas en lámina propia, colitis focal con erosiones, edema e hiperemia en sitios de adherencia y producción de citoquinas en respuesta Th2 como IL-4, IL-5 e IL-13. El daño nutricional comprende malabsorción por alteración de la función absortiva intestinal, reducción de ingesta por anorexia secundaria y pérdida proteica por exudación en mucosa dañada.
 ### 5.2 Respuesta Inmune del Hospedero
-
-**Inmunidad humoral:**
-- Elevación de IgE sérica total
-- Anticuerpos específicos anti-*Trichuris* (IgG, IgA)
-
-**Inmunidad celular:**
-- Respuesta Th2 predominante
-- Eosinofilia periférica (moderada a marcada)
-- Mastocitosis intestinal
-
-**Inmunidad protectora:**
-- La respuesta inmune humana es parcialmente protectora
-- No confiere inmunidad esterilizante
-- Reinfecciones son comunes
-
+La inmunidad humoral incluye elevación de IgE sérica total y anticuerpos específicos anti-Trichuris como IgG e IgA. La inmunidad celular presenta respuesta Th2 predominante, eosinofilia periférica moderada a marcada y mastocitosis intestinal. La inmunidad protectora es parcialmente protectora en humanos, no confiere inmunidad esterilizante y las reinfecciones son comunes.
 ---
-
 ## 6. Manifestaciones Clínicas
-
-La presentación clínica depende de la **carga parasitaria** (número de gusanos).
-
+La presentación clínica depende de la carga parasitaria o número de gusanos.
 ### 6.1 Clasificación de Intensidad de Infección (OMS)
-
-- **Leve:** 1-999 huevos por gramo de heces (hpg)
-- **Moderada:** 1,000-9,999 hpg
-- **Intensa:** ≥10,000 hpg
-
+La infección leve es de 1 a 999 huevos por gramo de heces (hpg). La moderada es de 1,000 a 9,999 hpg. La intensa es de 10,000 hpg o más.
 ### 6.2 Espectro Clínico
-
-#### Infección Leve (<100 gusanos)
-- **Asintomática** en la mayoría de los casos
-- Portador sano
-- Hallazgo incidental en examen coprológico
-
-#### Infección Moderada (100-200 gusanos)
-- Dolor abdominal intermitente (fosa iliaca derecha)
-- Distensión abdominal
-- Flatulencia
-- Náuseas
-- Diarrea ocasional
-- Anemia leve
-
-#### Infección Intensa (>200 gusanos) - Síndrome de Disentería por Trichuris
-
-**Manifestaciones gastrointestinales:**
-- Diarrea crónica mucosanguinolenta (disentería)
-- Dolor abdominal tipo cólico (intenso)
-- Tenesmo rectal
-- Pujo
-- Evacuaciones frecuentes (>10/día en casos severos)
-- Prolapso rectal (15-20% de casos intensos en niños)
-
-**Manifestaciones sistémicas:**
-- Anemia ferropénica severa
-- Desnutrición crónica
-- Retraso del crecimiento (stunting)
-- Déficit cognitivo en niños
-- Hipoalbuminemia
-- Debilidad y fatiga crónica
-
-**Complicaciones:**
-- **Prolapso rectal:** Especialmente en niños <5 años con cargas masivas
-- **Anemia severa:** Hb <7 g/dL, requiere transfusión
-- **Dedos en palillo de tambor** (clubbing digital): Por anemia crónica
-- **Apendicitis:** Rara, por obstrucción apendicular
-
+En infección leve con menos de 100 gusanos, es asintomática en la mayoría de los casos, con portador sano y hallazgo incidental en examen coprológico. En infección moderada con 100 a 200 gusanos, hay dolor abdominal intermitente en fosa ilíaca derecha, distensión abdominal, flatulencia, náuseas, diarrea ocasional y anemia leve. En infección intensa con más de 200 gusanos se presenta el síndrome de disentería por Trichuris con manifestaciones gastrointestinales como diarrea crónica mucosanguinolenta o disentería, dolor abdominal tipo cólico intenso, tenesmo rectal, pujo, evacuaciones frecuentes con más de 10 al día en casos severos y prolapso rectal en 15 a 20% de casos intensos en niños; manifestaciones sistémicas como anemia ferropénica severa, desnutrición crónica, retraso del crecimiento o stunting, déficit cognitivo en niños, hipoalbuminemia, debilidad y fatiga crónica; y complicaciones como prolapso rectal especialmente en niños menores de 5 años con cargas masivas, anemia severa con Hb menor a 7 g/dL que requiere transfusión, dedos en palillo de tambor o clubbing digital por anemia crónica y apendicitis rara por obstrucción apendicular.
 ### 6.3 Hallazgos de Laboratorio
-
-- Eosinofilia periférica (500-3,000 eosinófilos/μL)
-- Anemia microcítica hipocrómica
-- Leucocitosis leve
-- Hipoalbuminemia
-- Ferritina baja, transferrina elevada
-
+Incluyen eosinofilia periférica entre 500 y 3,000 eosinófilos por μL, anemia microcítica hipocrómica, leucocitosis leve, hipoalbuminemia, ferritina baja y transferrina elevada.
 ---
-
 ## 7. Diagnóstico
-
 ### 7.1 Diagnóstico Parasitológico (Método de Elección)
-
-#### Examen Coprológico Directo
-- **Muestra:** Heces frescas
-- **Técnica:** Montaje directo con solución salina o lugol
-- **Sensibilidad:** Baja en infecciones leves
-- **Identificación:** Huevos característicos con tapones polares
-
-#### Métodos de Concentración (Mayor sensibilidad)
-
-**Flotación:**
-- Solución de sulfato de zinc
-- Útil para huevos (<sp. gr. bajo)
-
-**Sedimentación:**
-- **Método de Ritchie (formol-éter):** Método de elección
-- **Técnica de Kato-Katz:** Técnica cuantitativa, permite estimar intensidad de infección
-  - Cuenta de huevos/gramo de heces
-  - Útil en estudios epidemiológicos
-
-**Técnica de Kato-Katz modificada:**
-- Estándar de oro para estudios de campo
-- Permite cuantificación y clasificación de intensidad
-- Recomendada por OMS
-
+El examen coprológico directo requiere muestra de heces frescas, técnica de montaje directo con solución salina o lugol, con sensibilidad baja en infecciones leves e identificación por huevos característicos con tapones polares. Los métodos de concentración con mayor sensibilidad incluyen flotación con solución de sulfato de zinc útil para huevos de sp. gr. bajo; sedimentación con método de Ritchie formol-éter como método de elección y técnica de Kato-Katz que es cuantitativa, permite estimar intensidad de infección contando huevos por gramo de heces y es útil en estudios epidemiológicos. La técnica de Kato-Katz modificada es el estándar de oro para estudios de campo, permite cuantificación y clasificación de intensidad y es recomendada por la OMS.
 ### 7.2 Diagnóstico Endoscópico
-
-**Colonoscopia:**
-- Visualización directa de parásitos adultos embebidos en mucosa
-- Mucosa congestiva, edematosa, con erosiones
-- Útil en casos atípicos o para evaluación de complicaciones
-- No es método de rutina
-
+La colonoscopia permite visualización directa de parásitos adultos embebidos en mucosa con mucosa congestiva, edematosa y con erosiones, es útil en casos atípicos o para evaluación de complicaciones pero no es método de rutina.
 ### 7.3 Diagnóstico Molecular
-
-**PCR (Polymerase Chain Reaction):**
-- Detección de ADN parasitario en heces
-- Mayor sensibilidad que métodos microscópicos
-- Útil en investigación, no rutinario en clínica
-- Permite diferenciación de especies de *Trichuris*
-
+La PCR o Polymerase Chain Reaction detecta ADN parasitario en heces con mayor sensibilidad que métodos microscópicos, es útil en investigación, no rutinario en clínica y permite diferenciación de especies de Trichuris.
 ### 7.4 Diagnóstico Inmunológico
-
-**Serología:**
-- Detección de anticuerpos anti-*Trichuris*
-- Baja especificidad (reacciones cruzadas)
-- No diferencia infección activa de pasada
-- No se usa rutinariamente
-
+La serología detecta anticuerpos anti-Trichuris con baja especificidad por reacciones cruzadas, no diferencia infección activa de pasada y no se usa rutinariamente.
 ### 7.5 Diagnóstico Diferencial
-
-**Diarrea crónica mucosanguinolenta:**
-- Enfermedad inflamatoria intestinal (Crohn, colitis ulcerosa)
-- Shigelosis
-- Amebiasis intestinal
-- Otras parasitosis (esquistosomiasis intestinal)
-- Síndrome de intestino irritable
-- Neoplasias colorrectales
-
-**Anemia ferropénica:**
-- Anquilostomiasis
-- Otras causas de pérdida sanguínea GI
-- Deficiencia nutricional de hierro
-
+Para diarrea crónica mucosanguinolenta incluye enfermedad inflamatoria intestinal como Crohn o colitis ulcerosa, shigelosis, amebiasis intestinal, otras parasitosis como esquistosomiasis intestinal, síndrome de intestino irritable y neoplasias colorrectales. Para anemia ferropénica abarca anquilostomiasis, otras causas de pérdida sanguínea GI y deficiencia nutricional de hierro.
 ---
-
 ## 8. Tratamiento
-
 ### 8.1 Objetivos Terapéuticos
-
-- Eliminación del parásito (cura parasitológica)
-- Resolución de síntomas
-- Corrección de anemia y desnutrición
-- Prevención de complicaciones
-
+Incluyen eliminación del parásito con cura parasitológica, resolución de síntomas, corrección de anemia y desnutrición y prevención de complicaciones.
 ### 8.2 Tratamiento Antiparasitario
-
-*T. trichiura* es el helminto transmitido por el suelo **más resistente al tratamiento** con benzimidazoles de dosis única.
-
-#### Fármacos de Primera Línea
-
-**1. Mebendazol**
-- **Mecanismo:** Inhibición de polimerización de tubulina, bloqueo de captación de glucosa
-- **Esquemas:**
-  - Dosis única: 500 mg VO (eficacia 36-40%, inadecuada)
-  - Régimen de 3 días: **100 mg VO cada 12 horas × 3 días** (RECOMENDADO, eficacia 60-78%)
-- **Efectos adversos:** Generalmente bien tolerado, dolor abdominal leve, diarrea transitoria
-- **Contraindicaciones:** Embarazo (categoría C), niños <1 año
-
-**2. Albendazol**
-- **Mecanismo:** Similar a mebendazol
-- **Esquemas:**
-  - Dosis única: 400 mg VO (eficacia 28-39%, inadecuada)
-  - Régimen de 3 días: **400 mg VO cada 24 horas × 3 días** (RECOMENDADO, eficacia 45-82%)
-- **Ventaja:** Dosis única útil en campañas de desparasitación masiva (aunque con baja eficacia)
-- **Efectos adversos:** Similares a mebendazol
-- **Contraindicaciones:** Embarazo (categoría C), hepatopatía
-
-#### Fármacos de Segunda Línea / Alternativas
-
-**3. Ivermectina**
-- **Dosis:** 200 μg/kg VO dosis única
-- **Eficacia:** Moderada como monoterapia (40-60%)
-- **Combinaciones:**
-  - **Albendazol + Ivermectina:** 400 mg + 200 μg/kg VO, eficacia superior (>80%)
-  - Útil en áreas de resistencia a monoterapia
-
-**4. Oxantel pamoato**
-- **Dosis:** 10 mg/kg VO dosis única (máximo 1 g)
-- **Eficacia:** 50-60% en dosis única
-- **Combinación:** Frecuentemente combinado con pirantel pamoato
-- **Disponibilidad:** Limitada en algunos países
-
-**5. Pamoato de pirantel + Oxantel**
-- Combinación fija disponible en algunos mercados
-- Mayor eficacia que cada uno solo
-
+T. trichiura es el helminto transmitido por el suelo más resistente al tratamiento con benzimidazoles de dosis única. Los fármacos de primera línea son el mebendazol con mecanismo de inhibición de polimerización de tubulina y bloqueo de captación de glucosa, en esquemas de dosis única 500 mg VO con eficacia 36 a 40% que es inadecuada o régimen de 3 días 100 mg VO cada 12 horas por 3 días recomendado con eficacia 60 a 78%, efectos adversos generalmente bien tolerado con dolor abdominal leve y diarrea transitoria y contraindicaciones en embarazo categoría C y niños menores de 1 año; y el albendazol con mecanismo similar a mebendazol, en esquemas de dosis única 400 mg VO con eficacia 28 a 39% inadecuada o régimen de 3 días 400 mg VO cada 24 horas por 3 días recomendado con eficacia 45 a 82%, ventaja de dosis única útil en campañas de desparasitación masiva aunque con baja eficacia, efectos adversos similares a mebendazol y contraindicaciones en embarazo categoría C y hepatopatía. Los fármacos de segunda línea o alternativas incluyen ivermectina en 200 μg/kg VO dosis única con eficacia moderada como monoterapia 40 a 60% y en combinaciones como albendazol + ivermectina 400 mg + 200 μg/kg VO con eficacia superior al 80% útil en áreas de resistencia a monoterapia; oxantel pamoato en 10 mg/kg VO dosis única máximo 1 g con eficacia 50 a 60% en dosis única y frecuentemente combinado con pirantel pamoato con disponibilidad limitada en algunos países; y pamoato de pirantel + oxantel en combinación fija disponible en algunos mercados con mayor eficacia que cada uno solo.
 ### 8.3 Tratamiento de Soporte
-
-**Anemia ferropénica:**
-- Sulfato ferroso: 3-6 mg/kg/día de hierro elemental VO por 3-6 meses
-- Ácido fólico: 1-5 mg/día
-- Transfusión sanguínea: Si Hb <7 g/dL o síntomas severos
-
-**Desnutrición:**
-- Suplementación nutricional
-- Dieta hiperproteica
-- Micronutrientes (zinc, vitamina A)
-
-**Complicaciones:**
-- Prolapso rectal: Reducción manual, cirugía en casos refractarios
-
+Para anemia ferropénica se usa sulfato ferroso 3 a 6 mg/kg/día de hierro elemental VO por 3 a 6 meses, ácido fólico 1 a 5 mg/día y transfusión sanguínea si Hb menor a 7 g/dL o síntomas severos. Para desnutrición incluye suplementación nutricional, dieta hiperproteica y micronutrientes como zinc y vitamina A. Para complicaciones como prolapso rectal se realiza reducción manual y cirugía en casos refractarios.
 ### 8.4 Seguimiento
-
-- **Control parasitológico:** 3-4 semanas post-tratamiento
-- Examen coprológico (técnica de Kato-Katz)
-- **Retratamiento:** Si persisten huevos en heces
-- **Control de anemia:** Hemograma a los 3 meses
-
+Se realiza control parasitológico entre 3 y 4 semanas post-tratamiento con examen coprológico usando técnica de Kato-Katz, retratamiento si persisten huevos en heces y control de anemia con hemograma a los 3 meses.
 ### 8.5 Resistencia Antihelmíntica
-
-**Problema emergente:**
-- Reportes de baja eficacia terapéutica crecientes
-- Mecanismos: Mutaciones en gen de β-tubulina
-- **Estrategias:**
-  - Uso de regímenes de múltiples días
-  - Terapias combinadas
-  - Rotación de fármacos
-
+Es un problema emergente con reportes de baja eficacia terapéutica crecientes y mecanismos como mutaciones en gen de β-tubulina. Las estrategias incluyen uso de regímenes de múltiples días, terapias combinadas y rotación de fármacos.
 ---
-
 ## 9. Prevención y Control
-
 ### 9.1 Prevención Primaria
-
-#### Medidas Ambientales
-- **Saneamiento básico:** Construcción de letrinas y sistemas de alcantarillado
-- **Agua potable:** Acceso a agua segura
-- **Disposición adecuada de excretas:** Evitar uso de heces humanas como fertilizante sin tratamiento previo
-- **Tratamiento de aguas residuales**
-
-#### Educación Sanitaria
-- Lavado de manos con agua y jabón (antes de comer, después de defecar)
-- Higiene alimentaria (lavado adecuado de vegetales)
-- Evitar geofagia en niños
-- Consumo de agua hervida o tratada
-- Uso de calzado (menor impacto que en anquilostomiasis)
-
-#### Seguridad Alimentaria
-- Lavado minucioso de frutas y verduras
-- Desinfección de vegetales de consumo crudo (soluciones cloradas, vinagre)
-- Evitar fertilización con excretas humanas no tratadas
-
+Las medidas ambientales abarcan saneamiento básico con construcción de letrinas y sistemas de alcantarillado, agua potable con acceso a agua segura, disposición adecuada de excretas evitando uso de heces humanas como fertilizante sin tratamiento previo y tratamiento de aguas residuales. La educación sanitaria promueve lavado de manos con agua y jabón antes de comer y después de defecar, higiene alimentaria con lavado adecuado de vegetales, evitar geofagia en niños, consumo de agua hervida o tratada y uso de calzado con menor impacto que en anquilostomiasis. La seguridad alimentaria requiere lavado minucioso de frutas y verduras, desinfección de vegetales de consumo crudo con soluciones cloradas o vinagre y evitar fertilización con excretas humanas no tratadas.
 ### 9.2 Quimioterapia Preventiva (Desparasitación Masiva)
-
-**Estrategia de la OMS:**
-
-#### Grupos Objetivo
-- Niños en edad preescolar (1-4 años)
-- Niños en edad escolar (5-14 años)
-- Mujeres en edad fértil (especialmente embarazadas en 2º y 3º trimestre)
-- Adultos en ocupaciones de alto riesgo
-
-#### Frecuencia de Tratamiento (según prevalencia)
-
-**Prevalencia <20%:**
-- No se recomienda quimioterapia preventiva
-
-**Prevalencia 20-50%:**
-- 1 vez al año en niños preescolares y escolares
-
-**Prevalencia >50%:**
-- 2 veces al año en niños preescolares y escolares
-- 1 vez al año en mujeres en edad fértil y adultos en riesgo
-
-**Fármaco utilizado:**
-- Albendazol 400 mg o Mebendazol 500 mg dosis única
-- Aunque la eficacia es subóptima, reduce carga parasitaria comunitaria
-
+La estrategia de la OMS dirige grupos objetivo a niños en edad preescolar de 1 a 4 años, niños en edad escolar de 5 a 14 años, mujeres en edad fértil especialmente embarazadas en 2º y 3º trimestre y adultos en ocupaciones de alto riesgo. La frecuencia de tratamiento según prevalencia es ninguna recomendación si menor al 20%, una vez al año en niños preescolares y escolares si 20 a 50% y dos veces al año en niños preescolares y escolares más una vez al año en mujeres en edad fértil y adultos en riesgo si mayor al 50%. El fármaco utilizado es albendazol 400 mg o mebendazol 500 mg dosis única aunque la eficacia es subóptima reduciendo carga parasitaria comunitaria.
 ### 9.3 Prevención Secundaria
-
-- **Tamizaje:** Examen coprológico en poblaciones de riesgo
-- **Tratamiento precoz:** Detección y tratamiento oportuno de casos
-- **Vigilancia epidemiológica**
-
+Incluye tamizaje con examen coprológico en poblaciones de riesgo, tratamiento precoz con detección y tratamiento oportuno de casos y vigilancia epidemiológica.
 ### 9.4 Control Integrado
-
-**Enfoque multisectorial:**
-- Mejoramiento de infraestructura sanitaria
-- Educación en salud
-- Desparasitación masiva periódica
-- Mejoramiento socioeconómico
-- Coordinación intersectorial (salud, educación, agua y saneamiento)
-
+Adopta enfoque multisectorial con mejoramiento de infraestructura sanitaria, educación en salud, desparasitación masiva periódica, mejoramiento socioeconómico y coordinación intersectorial en salud, educación, agua y saneamiento.
 ---
-
 ## 10. Importancia en Salud Pública
-
 ### Carga Global de Enfermedad
-- **DALYs (Disability-Adjusted Life Years):** 0.65 millones de DALYs perdidos anualmente
-- **Impacto:** Principalmente en niños en países de bajos ingresos
-- **Efectos a largo plazo:** Déficit cognitivo, reducción de capacidad laboral futura
-
+Los DALYs o Disability-Adjusted Life Years son 0.65 millones perdidos anualmente con impacto principalmente en niños en países de bajos ingresos y efectos a largo plazo como déficit cognitivo y reducción de capacidad laboral futura.
 ### Desafíos Actuales
-1. **Eficacia terapéutica subóptima** de regímenes de dosis única
-2. **Reinfecciones frecuentes** en áreas endémicas
-3. **Necesidad de mejoras sostenibles** en saneamiento (no solo quimioterapia)
-4. **Coinfecciones** con otros helmintos y parásitos
-5. **Resistencia antihelmíntica emergente**
-
+Incluyen eficacia terapéutica subóptima de regímenes de dosis única, reinfecciones frecuentes en áreas endémicas, necesidad de mejoras sostenibles en saneamiento no solo quimioterapia, coinfecciones con otros helmintos y parásitos y resistencia antihelmíntica emergente.
 ### Estrategias para Eliminación
-- **Meta 2030 de la OMS:** Eliminación de morbilidad por geohelmintiasis
-- **Requerimientos:**
-  - Cobertura >75% de desparasitación en áreas endémicas
-  - Acceso a saneamiento mejorado en >75% de población
-  - Educación sanitaria sostenida
-  - Vigilancia epidemiológica robusta
-
+La meta 2030 de la OMS es eliminación de morbilidad por geohelmintiasis con requerimientos de cobertura superior al 75% de desparasitación en áreas endémicas, acceso a saneamiento mejorado en más del 75% de población, educación sanitaria sostenida y vigilancia epidemiológica robusta.
 ---
-
 ## 11. Puntos Clave para Recordar
-
-1. *T. trichiura* es un nematodo con ciclo de vida **directo**, sin fase pulmonar
-2. Los **huevos con tapones polares** son patognomónicos
-3. Los adultos se adhieren a la mucosa del **ciego y colon** con su extremo anterior
-4. Las infecciones intensas causan **síndrome disentérico, anemia y prolapso rectal** en niños
-5. El diagnóstico se realiza por **examen coprológico** (técnica de Kato-Katz)
-6. Es el helminto transmitido por el suelo **más resistente** al tratamiento
-7. **Mebendazol 100 mg c/12h × 3 días** es el esquema recomendado (no dosis única)
-8. La prevención requiere **saneamiento mejorado**, no solo desparasitación
-
+T. trichiura es un nematodo con ciclo de vida directo sin fase pulmonar. Los huevos con tapones polares son patognomónicos. Los adultos se adhieren a la mucosa del ciego y colon con su extremo anterior. Las infecciones intensas causan síndrome disentérico, anemia y prolapso rectal en niños. El diagnóstico se realiza por examen coprológico con técnica de Kato-Katz. Es el helminto transmitido por el suelo más resistente al tratamiento. Mebendazol 100 mg cada 12 horas por 3 días es el esquema recomendado no dosis única. La prevención requiere saneamiento mejorado no solo desparasitación.
 ---
-
 ## Referencias Bibliográficas Sugeridas
-
-1. Organización Mundial de la Salud (OMS). (2023). *Soil-transmitted helminth infections*. Fact sheet.
-2. Stephenson LS, Holland CV, Cooper ES. (2000). The public health significance of *Trichuris trichiura*. *Parasitology*, 121(S1), S73-S95.
-3. Weatherhead JE, Hotez PJ, Mejia R. (2020). The global state of helminth control and elimination in children. *Pediatric Clinics*, 64(4), 867-877.
-4. Else KJ, Keiser J, Holland CV, et al. (2020). Whipworm and roundworm infections. *Nature Reviews Disease Primers*, 6(44).
-5. Montresor A, Mwinzi P, Mupfasoni D. (2022). Soil-transmitted helminthiases: epidemiology, treatment, and control. *Expert Review of Anti-infective Therapy*, 20(3), 395-405.
-
+Organización Mundial de la Salud (OMS). (2023). Soil-transmitted helminth infections. Fact sheet. Stephenson LS, Holland CV, Cooper ES. (2000). The public health significance of Trichuris trichiura. Parasitology, 121(S1), S73-S95. Weatherhead JE, Hotez PJ, Mejia R. (2020). The global state of helminth control and elimination in children. Pediatric Clinics, 64(4), 867-877. Else KJ, Keiser J, Holland CV, et al. (2020). Whipworm and roundworm infections. Nature Reviews Disease Primers, 6(44). Montresor A, Mwinzi P, Mupfasoni D. (2022). Soil-transmitted helminthiases: epidemiology, treatment, and control. Expert Review of Anti-infective Therapy, 20(3), 395-405.
 ---
-
 **Nota:** Este documento ha sido elaborado con fines académicos para estudiantes de parasitología a nivel universitario. La información presentada refleja conocimientos actualizados al 2024-2025 basados en guías de la OMS y literatura científica reciente.

@@ -12,6 +12,11 @@ class yolo_model():
             for box in boxes:
                 clase_id = int(box.cls)
                 self.deteccion.append([result.names[clase_id],round(box.conf.item(),2)])
+
+        if not self.deteccion:
+            self.deteccion = None
+            
+        return self.deteccion
     
     def show(self):
         try:
@@ -24,3 +29,4 @@ class yolo_model():
         for obj in self.deteccion:
             self.v_contex= f"{self.v_contex}object {obj[0]} certainty {str(obj[1])[2:]}%. \n "
         return self.v_contex
+    

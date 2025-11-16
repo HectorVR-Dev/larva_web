@@ -2,11 +2,11 @@ import os
 import glob
 from pathlib import Path
 
-from langchain_community.document_loaders import UnstructuredMarkdownLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores.utils import filter_complex_metadata
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.documents import Document
+from langchain_community.vectorstores.utils import filter_complex_metadata
+from langchain.text_splitter import MarkdownHeaderTextSplitter
 
 # ===================== CONFIGURACIÓN =====================
 DATA_DIR = "./data"
@@ -14,13 +14,16 @@ CHROMA_DIR = "./chroma_db"
 EMB_MODEL = "sentence-transformers/multi-qa-mpnet-base-cos-v1"
 FORCE_REBUILD = True  # Cambia a False para evitar reconstrucción
 
-CHUNK_SIZE = 150
-CHUNK_OVERLAP = 30
-# =========================================================
+# ===================== SPLIT POR SECCIONES =====================
+HEADERS = [
+    ("#", "header_1"),
+    ("##", "header_2"),
+    #("###", "header_3"),
+]
 
-# ============================================
-# METADATOS MANUALES POR DOCUMENTO
-# ============================================
+markdown_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=HEADERS)
+
+# ===================== METADATOS MANUALES =====================
 METADATA_MAP = {
     "ascaris.md": {
         "category": "nematodo",
@@ -38,9 +41,14 @@ METADATA_MAP = {
         "category": "cestodo",
         "species": "taenia saginata"
     },
-    # Agregar más archivos según sea necesario
 }
-# ============================================
+# ============================================================
+
+
+def load_markdown(path: str) -> str:
+    """Carga el contenido del archivo Markdown sin procesar."""
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
 
 
 def main():
@@ -63,43 +71,37 @@ def main():
         print(f"   - {os.path.basename(f)}")
 
     print("\nCargando y procesando documentos...")
-    documents = []
+    processed_docs = []
+
     for file_path in md_files:
         filename = os.path.basename(file_path)
 
-        loader = UnstructuredMarkdownLoader(
-            file_path,
-            mode="single",
-            strategy="fast"
-        )
-        docs = loader.load()
+        raw_markdown = load_markdown(file_path)
 
-        # ============================================
-        # APLICACIÓN DE METADATOS PERSONALIZADOS
-        # ============================================
-        for doc in docs:
-            doc.metadata["source"] = filename
-            doc.metadata["file_path"] = file_path
+        # Dividir por secciones estructuradas
+        sections = markdown_splitter.split_text(raw_markdown)
 
-            # agrega category y species si existen
+        for sec in sections:
+            metadata = sec.metadata.copy()
+
+            metadata["source"] = filename
+            metadata["file_path"] = file_path
+
+            # insertar metadatos manuales
             if filename in METADATA_MAP:
                 for key, value in METADATA_MAP[filename].items():
-                    doc.metadata[key] = value
+                    metadata[key] = value
 
-        # Quitar metadatos complejos
-        documents.extend(filter_complex_metadata(docs))
+            processed_docs.append(
+                Document(
+                    page_content=sec.page_content.strip(),
+                    metadata=metadata
+                )
+            )
 
-    print(f"Documentos cargados: {len(documents)}")
+    processed_docs = filter_complex_metadata(processed_docs)
 
-    print("Dividiendo en chunks...")
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
-        length_function=len,
-        add_start_index=True
-    )
-    chunks = text_splitter.split_documents(documents)
-    print(f"Chunks generados: {len(chunks)}")
+    print(f"Chunks generados por secciones: {len(processed_docs)}")
 
     print(f"\nCargando modelo de embeddings: {EMB_MODEL}")
     embedder = HuggingFaceEmbeddings(
@@ -112,12 +114,12 @@ def main():
 
     print(f"\nConstruyendo base de datos en: {CHROMA_DIR}")
     vectorstore = Chroma.from_documents(
-        documents=chunks,
+        documents=processed_docs,
         embedding=embedder,
         persist_directory=CHROMA_DIR
     )
 
-    print("Base de datos creada exitosamente!")
+    print("\nBase de datos creada exitosamente!")
     print(f"   → Total de chunks: {vectorstore._collection.count()}")
     print(f"   → Ubicación: {CHROMA_DIR}")
 

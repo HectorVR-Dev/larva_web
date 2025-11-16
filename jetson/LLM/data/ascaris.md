@@ -2,426 +2,144 @@
 
 ## 1. Introducción
 
-*Ascaris lumbricoides* es un nematodo parásito intestinal que representa uno de los helmintos más prevalentes a nivel mundial. Es el agente etiológico de la ascariasis, una de las geohelmintiasis más comunes que afecta principalmente a poblaciones en regiones tropicales y subtropicales con condiciones sanitarias deficientes.
+Ascaris lumbricoides es un nematodo parásito intestinal que representa uno de los helmintos más prevalentes a nivel mundial. Es el agente etiológico de la ascariasis, una de las geohelmintiasis más comunes que afecta principalmente a poblaciones en regiones tropicales y subtropicales con condiciones sanitarias deficientes.
 
 ## 2. Taxonomía
 
-- **Reino:** Animalia
-- **Filo:** Nematoda
-- **Clase:** Secernentea (Chromadorea)
-- **Orden:** Ascaridida
-- **Familia:** Ascarididae
-- **Género:** *Ascaris*
-- **Especie:** *Ascaris lumbricoides* (Linnaeus, 1758)
+Ascaris lumbricoides pertenece al reino Animalia, filo Nematoda, clase Secernentea (Chromadorea), orden Ascaridida, familia Ascarididae, género Ascaris y especie Ascaris lumbricoides (Linnaeus, 1758).
 
 ## 3. Morfología
 
 ### 3.1 Adultos
 
-**Macho:**
-- Longitud: 15-31 cm
-- Diámetro: 2-4 mm
-- Extremidad posterior curvada ventralmente
-- Presenta espículas copuladoras (2 piezas quitinosas)
-- Color: blanco-rosáceo
-
-**Hembra:**
-- Longitud: 20-35 cm (pueden alcanzar hasta 40 cm)
-- Diámetro: 3-6 mm
-- Extremidad posterior recta o ligeramente curvada
-- Vulva localizada en el tercio anterior del cuerpo
-- Más robusta que el macho
-- Capacidad reproductiva: 200,000 huevos/día
-
-**Características comunes:**
-- Cuerpo cilíndrico no segmentado
-- Cutícula estriada transversalmente
-- Tres labios prominentes en el extremo anterior
-- Sistema digestivo completo (boca, esófago, intestino, ano)
-- Dimorfismo sexual marcado
+El macho mide entre 15 y 31 cm de longitud con un diámetro de 2 a 4 mm, presenta la extremidad posterior curvada ventralmente, cuenta con espículas copuladoras que son dos piezas quitinosas y tiene un color blanco-rosáceo. La hembra mide entre 20 y 35 cm de longitud, pudiendo alcanzar hasta 40 cm, con un diámetro de 3 a 6 mm, la extremidad posterior es recta o ligeramente curvada, la vulva se localiza en el tercio anterior del cuerpo, es más robusta que el macho y tiene una capacidad reproductiva de 200,000 huevos por día. Las características comunes incluyen un cuerpo cilíndrico no segmentado, cutícula estriada transversalmente, tres labios prominentes en el extremo anterior, sistema digestivo completo con boca, esófago, intestino y ano, así como un dimorfismo sexual marcado.
 
 ### 3.2 Huevos
 
-**Huevos fértiles:**
-- Forma: ovalada o elíptica
-- Tamaño: 45-75 μm × 35-50 μm
-- Cubierta externa: mamelonada (albuminosa), de color café dorado
-- Cubierta interna: gruesa y transparente
-- Contienen una célula huevo no segmentada al momento de la oviposición
-
-**Huevos infértiles:**
-- Forma: más alargada e irregular
-- Tamaño: 85-95 μm × 43-47 μm
-- Cubierta mamelonada menos prominente
-- Contenido granular desorganizado
-- No son infectivos
-
-**Huevos decorticados:**
-- Carecen de la cubierta albuminosa externa
-- Transparentes o hialinos
-- Más difíciles de identificar en exámenes coprológicos
+Los huevos fértiles tienen forma ovalada o elíptica, miden entre 45 y 75 μm por 35 a 50 μm, poseen una cubierta externa mamelonada de color café dorado que es albuminosa, una cubierta interna gruesa y transparente, y contienen una célula huevo no segmentada al momento de la oviposición. Los huevos infértiles son más alargados e irregulares, miden entre 85 y 95 μm por 43 a 47 μm, tienen una cubierta mamelonada menos prominente, contenido granular desorganizado y no son infectivos. Los huevos decorticados carecen de la cubierta albuminosa externa, son transparentes o hialinos y resultan más difíciles de identificar en exámenes coprológicos.
 
 ## 4. Ciclo de Vida
 
 ### 4.1 Fase Externa (Ambiental)
-
-1. **Eliminación:** Los huevos son eliminados con las heces del hospedador
-2. **Maduración:** En condiciones óptimas (suelos húmedos, temperaturas 25-30°C), el huevo desarrolla la larva L1 en su interior (7-10 días)
-3. **Desarrollo larvario:** La larva L1 muda a L2 dentro del huevo
-4. **Infectividad:** El huevo con larva L2 es la forma infectante
-5. **Resistencia:** Los huevos pueden permanecer viables en el suelo por meses o años
+Los huevos son eliminados con las heces del hospedador. En condiciones óptimas como suelos húmedos y temperaturas entre 25 y 30°C, el huevo desarrolla la larva L1 en su interior en un período de 7 a 10 días. La larva L1 muda a L2 dentro del huevo. El huevo con larva L2 es la forma infectante. Los huevos pueden permanecer viables en el suelo por meses o años.
 
 ### 4.2 Fase Interna (Hospedador)
-
-1. **Ingestión:** Consumo de alimentos o agua contaminados con huevos larvados
-2. **Eclosión:** En el intestino delgado, las larvas L2 eclosionan
-3. **Migración larvaria (Síndrome de Löffler):**
-   - Penetran la pared intestinal
-   - Alcanzan circulación portal
-   - Llegan al hígado (2-3 días post-infección)
-   - Migran a corazón derecho
-   - Alcanzan pulmones vía circulación pulmonar (6-8 días)
-   - Atraviesan capilares pulmonares hacia alvéolos
-   - Mudan a L3 y L4 en pulmones (10-14 días)
-4. **Retorno al intestino:**
-   - Ascienden por árbol bronquial
-   - Son deglutidas con las secreciones
-   - Llegan nuevamente al intestino delgado
-5. **Maduración:** Última muda a adultos en intestino delgado (20-30 días post-infección)
-6. **Período prepatente:** 60-75 días (tiempo desde infección hasta aparición de huevos en heces)
-7. **Período patente:** Los adultos viven 1-2 años
+El consumo de alimentos o agua contaminados con huevos larvados permite la ingestión. En el intestino delgado, las larvas L2 eclosionan. Durante la migración larvaria conocida como síndrome de Löffler, las larvas penetran la pared intestinal, alcanzan la circulación portal, llegan al hígado entre 2 y 3 días post-infección, migran al corazón derecho, alcanzan los pulmones vía circulación pulmonar entre 6 y 8 días, atraviesan capilares pulmonares hacia alvéolos y mudan a L3 y L4 en pulmones entre 10 y 14 días. Posteriormente, ascienden por el árbol bronquial, son deglutidas con las secreciones y llegan nuevamente al intestino delgado. La última muda a adultos ocurre en el intestino delgado entre 20 y 30 días post-infección. El período prepatente es de 60 a 75 días, que es el tiempo desde la infección hasta la aparición de huevos en heces. El período patente indica que los adultos viven entre 1 y 2 años.
 
 ## 5. Epidemiología
 
 ### 5.1 Distribución Geográfica
 
-- **Prevalencia global:** Aproximadamente 800 millones - 1.2 mil millones de personas infectadas
-- **Regiones endémicas:** 
-  - Asia (especialmente Sudeste Asiático, China, India)
-  - África Subsahariana
-  - América Latina (zonas rurales)
-  - Oceanía
-- **Factores determinantes:**
-  - Climas tropicales y subtropicales
-  - Deficiente saneamiento básico
-  - Prácticas de higiene inadecuadas
-  - Uso de heces humanas como fertilizante
+Aproximadamente entre 800 millones y 1.2 mil millones de personas están infectadas a nivel global. Las regiones endémicas incluyen Asia, especialmente el Sudeste Asiático, China e India, África Subsahariana, América Latina en zonas rurales y Oceanía. Los factores determinantes son los climas tropicales y subtropicales, el deficiente saneamiento básico, las prácticas de higiene inadecuadas y el uso de heces humanas como fertilizante.
 
 ### 5.2 Grupos de Riesgo
 
-- Niños en edad escolar (5-15 años): mayor prevalencia e intensidad
-- Poblaciones rurales sin acceso a agua potable
-- Comunidades con defecación al aire libre
-- Trabajadores agrícolas
-- Población de bajos recursos socioeconómicos
+Los niños en edad escolar entre 5 y 15 años presentan mayor prevalencia e intensidad. También están en riesgo las poblaciones rurales sin acceso a agua potable, las comunidades con defecación al aire libre, los trabajadores agrícolas y la población de bajos recursos socioeconómicos.
 
 ### 5.3 Mecanismos de Transmisión
 
-- **Geofagia:** Ingestión de tierra contaminada (común en niños)
-- **Consumo de vegetales crudos:** Mal lavados, cultivados con aguas servidas
-- **Manos contaminadas:** Falta de lavado antes de comer
-- **Agua contaminada:** Consumo de agua no tratada
-- **Fomites:** Utensilios, juguetes contaminados
+La geofagia implica la ingestión de tierra contaminada y es común en niños. El consumo de vegetales crudos mal lavados y cultivados con aguas servidas representa otro mecanismo. Las manos contaminadas por falta de lavado antes de comer, el agua contaminada no tratada y los fomites como utensilios o juguetes contaminados facilitan la transmisión.
 
 ## 6. Patogenia y Manifestaciones Clínicas
 
 ### 6.1 Fase Migratoria (Síndrome de Löffler)
 
-**Mecanismos patogénicos:**
-- Daño mecánico por migración larvaria
-- Respuesta inflamatoria eosinofílica
-- Hemorragias petequiales en hígado y pulmones
-
-**Manifestaciones clínicas:**
-- Fiebre moderada
-- Tos seca o productiva
-- Disnea
-- Sibilancias
-- Dolor torácico
-- Infiltrados pulmonares transitorios (radiografía)
-- Eosinofilia marcada (20-60%)
+Los mecanismos patogénicos incluyen daño mecánico por migración larvaria, respuesta inflamatoria eosinofílica y hemorragias petequiales en hígado y pulmones. Las manifestaciones clínicas abarcan fiebre moderada, tos seca o productiva, disnea, sibilancias, dolor torácico, infiltrados pulmonares transitorios en radiografía y eosinofilia marcada entre 20 y 60%.
 
 ### 6.2 Fase Intestinal
 
-**Mecanismos patogénicos:**
-- Competencia nutricional (proteínas, vitaminas A, C)
-- Irritación mecánica de la mucosa intestinal
-- Obstrucción intestinal (cargas parasitarias altas)
-- Migración errática
-
-**Manifestaciones clínicas según intensidad:**
-
-**Infecciones leves (< 10 parásitos):**
-- Frecuentemente asintomáticas
-- Molestias abdominales inespecíficas
-- Eliminación ocasional de parásitos adultos
-
-**Infecciones moderadas (10-50 parásitos):**
-- Dolor abdominal difuso tipo cólico
-- Náuseas ocasionales
-- Distensión abdominal
-- Alteración del apetito
-- Diarrea o estreñimiento alternado
-- Desnutrición crónica (niños)
-- Déficit en desarrollo físico y cognitivo
-
-**Infecciones masivas (> 50 parásitos):**
-- Obstrucción intestinal (complicación más frecuente)
-- Vólvulo intestinal
-- Invaginación intestinal
-- Perforación intestinal (rara)
+Los mecanismos patogénicos involucran competencia nutricional por proteínas y vitaminas A y C, irritación mecánica de la mucosa intestinal, obstrucción intestinal en cargas parasitarias altas y migración errática. En infecciones leves con menos de 10 parásitos, suelen ser asintomáticas con molestias abdominales inespecíficas y eliminación ocasional de parásitos adultos. Las infecciones moderadas con 10 a 50 parásitos causan dolor abdominal difuso tipo cólico, náuseas ocasionales, distensión abdominal, alteración del apetito, diarrea o estreñimiento alternado, desnutrición crónica en niños y déficit en desarrollo físico y cognitivo. Las infecciones masivas con más de 50 parásitos provocan obstrucción intestinal como complicación más frecuente, vólvulo intestinal, invaginación intestinal y perforación intestinal que es rara.
 
 ### 6.3 Complicaciones
 
-**Obstrucción intestinal:**
-- Masa de parásitos entrelazados (ovillos)
-- Localización: íleon terminal más frecuente
-- Clínica: dolor abdominal intenso, vómitos, ausencia de evacuaciones
-
-**Obstrucción de vías biliares:**
-- Migración de adultos al colédoco
-- Colangitis
-- Colecistitis aguda
-- Ictericia obstructiva
-- Pancreatitis aguda
-
-**Obstrucción apendicular:**
-- Apendicitis aguda por obstrucción luminal
-
-**Migración errática:**
-- Perforación gastrointestinal
-- Peritonitis
-- Expulsión por boca o nariz
-- Migración a vías respiratorias (asfixia)
-
-**Impacto nutricional:**
-- Desnutrición proteico-calórica
-- Déficit de vitaminas liposolubles
-- Anemia (poco común)
-- Retraso en crecimiento y desarrollo cognitivo
+La obstrucción intestinal se debe a masas de parásitos entrelazados conocidas como ovillos, con localización más frecuente en el íleon terminal y clínica de dolor abdominal intenso, vómitos y ausencia de evacuaciones. La obstrucción de vías biliares ocurre por migración de adultos al colédoco, causando colangitis, colecistitis aguda, ictericia obstructiva y pancreatitis aguda. La obstrucción apendicular genera apendicitis aguda por obstrucción luminal. La migración errática puede llevar a perforación gastrointestinal, peritonitis, expulsión por boca o nariz y migración a vías respiratorias con riesgo de asfixia. El impacto nutricional incluye desnutrición proteico-calórica, déficit de vitaminas liposolubles, anemia poco común y retraso en crecimiento y desarrollo cognitivo.
 
 ## 7. Diagnóstico
 
 ### 7.1 Diagnóstico Clínico
 
-- Antecedentes epidemiológicos
-- Manifestaciones clínicas compatibles
-- Expulsión de parásitos adultos
-- Síndrome de Löffler en fase migratoria
+Se basa en antecedentes epidemiológicos, manifestaciones clínicas compatibles, expulsión de parásitos adultos y síndrome de Löffler en fase migratoria.
 
 ### 7.2 Diagnóstico de Laboratorio
 
-**Examen coprológico directo:**
-- Técnica: Observación microscópica de heces frescas
-- Utilidad: Casos con alta carga parasitaria
-- Sensibilidad: Baja
-
-**Métodos de concentración:**
-- **Técnica de Kato-Katz:** 
-  - Método cuantitativo estandarizado por OMS
-  - Permite contar huevos por gramo de heces (hpg)
-  - Sensibilidad intermedia
-- **Método de Ritchie (formol-éter):**
-  - Concentración por sedimentación
-  - Mayor sensibilidad
-- **Método de flotación (sulfato de zinc):**
-  - Útil para huevos decorticados
-  - Menor sensibilidad para *Ascaris*
-
-**Criterios de intensidad (según OMS):**
-- Infección leve: 1-4,999 hpg
-- Infección moderada: 5,000-49,999 hpg
-- Infección intensa: ≥ 50,000 hpg
-
-**Otros métodos:**
-- **PCR:** Detección de ADN parasitario (alta sensibilidad, uso en investigación)
-- **Serología:** Limitada utilidad clínica (reacciones cruzadas)
-- **Eosinofilia:** Orientativa en fase migratoria (no específica)
+El examen coprológico directo implica observación microscópica de heces frescas, es útil en casos con alta carga parasitaria pero tiene baja sensibilidad. Los métodos de concentración incluyen la técnica de Kato-Katz, que es un método cuantitativo estandarizado por la OMS, permite contar huevos por gramo de heces (hpg) y tiene sensibilidad intermedia; el método de Ritchie con formol-éter realiza concentración por sedimentación con mayor sensibilidad; y el método de flotación con sulfato de zinc es útil para huevos decorticados pero con menor sensibilidad para Ascaris. Los criterios de intensidad según la OMS clasifican la infección leve en 1 a 4,999 hpg, moderada en 5,000 a 49,999 hpg e intensa en 50,000 hpg o más. Otros métodos abarcan la PCR para detección de ADN parasitario con alta sensibilidad y uso en investigación, la serología con limitada utilidad clínica por reacciones cruzadas y la eosinofilia que es orientativa en fase migratoria pero no específica.
 
 ### 7.3 Diagnóstico por Imágenes
 
-- **Radiografía simple de abdomen:** Visualización de parásitos adultos como imágenes lineales radiolúcidas
-- **Ecografía:** Detección de parásitos en vías biliares (imágenes tubulares ecogénicas)
-- **Endoscopia:** Visualización directa en duodeno o extracción de parásitos en vías biliares
-- **Radiografía de tórax:** Infiltrados pulmonares migratorios (síndrome de Löffler)
+La radiografía simple de abdomen visualiza parásitos adultos como imágenes lineales radiolúcidas. La ecografía detecta parásitos en vías biliares como imágenes tubulares ecogénicas. La endoscopia permite visualización directa en duodeno o extracción de parásitos en vías biliares. La radiografía de tórax muestra infiltrados pulmonares migratorios en el síndrome de Löffler.
 
 ## 8. Tratamiento
 
 ### 8.1 Tratamiento Farmacológico
 
-**Fármacos de primera línea:**
-
-**Albendazol:**
-- Dosis: 400 mg dosis única (oral)
-- Niños 1-2 años: 200 mg dosis única
-- Eficacia: 95-100%
-- Mecanismo: Inhibición de polimerización de tubulina
-- Contraindicación: Embarazo (primer trimestre)
-
-**Mebendazol:**
-- Dosis: 100 mg dos veces al día por 3 días, o 500 mg dosis única
-- Eficacia: 90-95%
-- Mecanismo: Similar a albendazol
-- Contraindicación: Embarazo (primer trimestre)
-
-**Fármacos alternativos:**
-
-**Pamoato de pirantel:**
-- Dosis: 11 mg/kg dosis única (máximo 1 g)
-- Eficacia: 85-95%
-- Mecanismo: Agonista nicotínico (parálisis espástica)
-- Ventaja: Seguro en embarazo
-
-**Ivermectina:**
-- Dosis: 150-200 μg/kg dosis única
-- Eficacia: 80-95%
-- Uso: Segunda línea
-
-**Nitazoxanida:**
-- Dosis: Niños 1-3 años: 100 mg/12h × 3 días
-- Niños 4-11 años: 200 mg/12h × 3 días
-- Adultos: 500 mg/12h × 3 días
+Los fármacos de primera línea incluyen el albendazol en dosis de 400 mg única oral, o 200 mg única en niños de 1 a 2 años, con eficacia de 95 a 100%, mecanismo de inhibición de polimerización de tubulina y contraindicación en embarazo durante el primer trimestre. El mebendazol se administra en 100 mg dos veces al día por 3 días o 500 mg dosis única, con eficacia de 90 a 95%, mecanismo similar al albendazol y contraindicación en embarazo durante el primer trimestre. Los fármacos alternativos son el pamoato de pirantel en 11 mg/kg dosis única con máximo 1 g, eficacia de 85 a 95%, mecanismo agonista nicotínico que causa parálisis espástica y ventaja de ser seguro en embarazo; la ivermectina en 150 a 200 μg/kg dosis única con eficacia de 80 a 95% y uso en segunda línea; y la nitazoxanida en niños de 1 a 3 años 100 mg cada 12 horas por 3 días, de 4 a 11 años 200 mg cada 12 horas por 3 días y en adultos 500 mg cada 12 horas por 3 días.
 
 ### 8.2 Tratamiento de Complicaciones
 
-**Obstrucción intestinal:**
-- Manejo conservador inicial:
-  - Hidratación endovenosa
-  - Sonda nasogástrica
-  - Piperazina (relaja parásitos): 150 mg/kg/día × 2 días
-  - Aceite mineral
-- Cirugía: Si manejo conservador falla en 24-48 horas
-
-**Obstrucción biliar/pancreática:**
-- CPRE (colangiopancreatografía retrógrada endoscópica)
-- Extracción endoscópica de parásitos
-- Tratamiento antihelmíntico post-procedimiento
+En obstrucción intestinal, el manejo conservador inicial incluye hidratación endovenosa, sonda nasogástrica, piperazina en 150 mg/kg/día por 2 días para relajar parásitos y aceite mineral, recurriendo a cirugía si falla en 24 a 48 horas. En obstrucción biliar o pancreática, se realiza CPRE para colangiopancreatografía retrógrada endoscópica, extracción endoscópica de parásitos y tratamiento antihelmíntico post-procedimiento.
 
 ### 8.3 Seguimiento
 
-- Control coprológico: 2-4 semanas post-tratamiento
-- Retratamiento si persisten huevos
-- Control nutricional en niños con infecciones intensas
+Se realiza control coprológico entre 2 y 4 semanas post-tratamiento, con retratamiento si persisten huevos y control nutricional en niños con infecciones intensas.
 
 ## 9. Prevención y Control
 
 ### 9.1 Medidas Individuales
 
-- **Higiene personal:**
-  - Lavado de manos con agua y jabón (antes de comer, después de defecar)
-  - Corte y limpieza de uñas
-- **Higiene alimentaria:**
-  - Lavado exhaustivo de frutas y verduras
-  - Cocción adecuada de alimentos
-  - Consumo de agua potable o hervida
-- **Evitar geofagia:** Especialmente en niños
+La higiene personal implica lavado de manos con agua y jabón antes de comer y después de defecar, así como corte y limpieza de uñas. La higiene alimentaria requiere lavado exhaustivo de frutas y verduras, cocción adecuada de alimentos y consumo de agua potable o hervida. Se debe evitar la geofagia, especialmente en niños.
 
 ### 9.2 Medidas Comunitarias
 
-**Saneamiento ambiental:**
-- Construcción y uso de letrinas/sistemas de alcantarillado
-- Eliminación sanitaria de excretas
-- Tratamiento de aguas residuales
-- Prohibición de uso de heces como fertilizante (sin tratamiento)
-
-**Educación sanitaria:**
-- Promoción de prácticas higiénicas
-- Campañas educativas en escuelas
-- Participación comunitaria
+El saneamiento ambiental abarca construcción y uso de letrinas o sistemas de alcantarillado, eliminación sanitaria de excretas, tratamiento de aguas residuales y prohibición de uso de heces como fertilizante sin tratamiento. La educación sanitaria promueve prácticas higiénicas, incluye campañas educativas en escuelas y fomenta la participación comunitaria.
 
 ### 9.3 Quimioprofilaxis Masiva
 
-**Estrategia de OMS:**
-- **Quimioterapia preventiva (desparasitación masiva):**
-  - Áreas con prevalencia ≥ 20%: Tratamiento anual
-  - Áreas con prevalencia ≥ 50%: Tratamiento bianual
-  - Población objetivo: Niños en edad escolar, mujeres edad reproductiva
-  - Fármacos: Albendazol o mebendazol
-
-**Programas integrados:**
-- Administración masiva de medicamentos (MDA)
-- Integración con programas de salud escolar
-- Suplementación con micronutrientes
-- WASH (agua, saneamiento e higiene)
+La estrategia de la OMS para quimioterapia preventiva o desparasitación masiva indica tratamiento anual en áreas con prevalencia igual o superior al 20% y bianual si es igual o superior al 50%, dirigiendo la población objetivo a niños en edad escolar y mujeres en edad reproductiva, utilizando albendazol o mebendazol. Los programas integrados incluyen administración masiva de medicamentos (MDA), integración con programas de salud escolar, suplementación con micronutrientes y WASH que abarca agua, saneamiento e higiene.
 
 ### 9.4 Vigilancia Epidemiológica
 
-- Monitoreo de prevalencia e intensidad
-- Identificación de áreas de alta transmisión
-- Evaluación de impacto de intervenciones
-- Vigilancia de resistencia antihelmíntica
+Incluye monitoreo de prevalencia e intensidad, identificación de áreas de alta transmisión, evaluación de impacto de intervenciones y vigilancia de resistencia antihelmíntica.
 
 ## 10. Impacto en Salud Pública
 
 ### 10.1 Carga de Enfermedad
 
-- **DALYs (años de vida ajustados por discapacidad):** Aproximadamente 1.2-1.5 millones anuales
-- **Mortalidad:** 2,700-10,000 muertes anuales (principalmente por obstrucción intestinal)
-- **Complicaciones severas:** 220,000 casos anuales
+Los DALYs o años de vida ajustados por discapacidad son aproximadamente entre 1.2 y 1.5 millones anuales. La mortalidad alcanza entre 2,700 y 10,000 muertes anuales, principalmente por obstrucción intestinal. Las complicaciones severas suman 220,000 casos anuales.
 
 ### 10.2 Impacto Socioeconómico
 
-- Pérdida de productividad económica
-- Costos en atención médica y tratamiento de complicaciones
-- Ausentismo escolar
-- Perpetuación del ciclo de pobreza
-- Afectación del desarrollo infantil
+Genera pérdida de productividad económica, costos en atención médica y tratamiento de complicaciones, ausentismo escolar, perpetuación del ciclo de pobreza y afectación del desarrollo infantil.
 
 ### 10.3 Metas Globales
 
-**OMS - Objetivos para 2030:**
-- Eliminación de la morbilidad por geohelmintiasis
-- Cobertura ≥ 75% en quimioprofilaxis preventiva
-- Reducción de prevalencia de infecciones de intensidad moderada/alta a < 2%
+Los objetivos de la OMS para 2030 buscan la eliminación de la morbilidad por geohelmintiasis, cobertura igual o superior al 75% en quimioprofilaxis preventiva y reducción de prevalencia de infecciones de intensidad moderada o alta a menos del 2%.
 
 ## 11. Aspectos de Investigación
 
 ### 11.1 Líneas Actuales
 
-- Desarrollo de vacunas (antígenos recombinantes)
-- Resistencia antihelmíntica: monitoreo y mecanismos moleculares
-- Diagnóstico molecular (PCR en tiempo real, LAMP)
-- Modelos de transmisión y control
-- Impacto del cambio climático en distribución
+Se investigan el desarrollo de vacunas con antígenos recombinantes, la resistencia antihelmíntica con monitoreo y mecanismos moleculares, el diagnóstico molecular como PCR en tiempo real y LAMP, modelos de transmisión y control, así como el impacto del cambio climático en la distribución.
 
 ### 11.2 Innovaciones Tecnológicas
 
-- **Microscopía automatizada:** 
-  - Sistemas de inteligencia artificial para detección de huevos
-  - Procesamiento de imágenes con deep learning
-- **Diagnóstico en punto de atención (POC):**
-  - Dispositivos portátiles
-  - Sistemas de telemicroscopía
-- **Modelado geoespacial:**
-  - Mapeo de riesgo de transmisión
-  - Predicción de áreas de intervención prioritaria
+La microscopía automatizada utiliza sistemas de inteligencia artificial para detección de huevos y procesamiento de imágenes con deep learning. El diagnóstico en punto de atención (POC) incluye dispositivos portátiles y sistemas de telemicroscopía. El modelado geoespacial permite mapeo de riesgo de transmisión y predicción de áreas de intervención prioritaria.
 
 ## 12. Referencias Clave
 
 ### Organismos Internacionales
 
-- **OMS:** Guías para el control de helmintiasis transmitidas por el suelo
-- **CDC:** *Ascaris lumbricoides* - DPDx (laboratorio de identificación parasitaria)
+La OMS proporciona guías para el control de helmintiasis transmitidas por el suelo. El CDC ofrece información sobre Ascaris lumbricoides en DPDx, laboratorio de identificación parasitaria.
 
 ### Literatura Científica Fundamental
 
-- Jourdan PM, et al. Soil-transmitted helminth infections. Lancet. 2018;391(10117):252-265.
-- Bethony J, et al. Soil-transmitted helminth infections: ascariasis, trichuriasis, and hookworm. Lancet. 2006;367(9521):1521-1532.
-- Crompton DWT. Ascaris and ascariasis. Adv Parasitol. 2001;48:285-375.
+Jourdan PM, et al. Soil-transmitted helminth infections. Lancet. 2018;391(10117):252-265. Bethony J, et al. Soil-transmitted helminth infections: ascariasis, trichuriasis, and hookworm. Lancet. 2006;367(9521):1521-1532. Crompton DWT. Ascaris and ascariasis. Adv Parasitol. 2001;48:285-375.
 
 ---
 
 ## Glosario de Términos
 
-- **Geohelmintiasis:** Infecciones parasitarias transmitidas a través del suelo
-- **Período prepatente:** Tiempo desde la infección hasta la detección de parásitos o huevos
-- **Período patente:** Período durante el cual los parásitos adultos producen huevos detectables
-- **Ovillo de áscaris:** Masa compacta de parásitos adultos entrelazados que causa obstrucción
-- **Síndrome de Löffler:** Conjunto de síntomas respiratorios asociados a migración larvaria
-- **HPG (huevos por gramo):** Unidad de medida de intensidad de infección
-- **DALYs:** Años de vida ajustados por discapacidad
-- **MDA:** Administración masiva de medicamentos
+La geohelmintiasis se refiere a infecciones parasitarias transmitidas a través del suelo. El período prepatente es el tiempo desde la infección hasta la detección de parásitos o huevos. El período patente es el período durante el cual los parásitos adultos producen huevos detectables. El ovillo de áscaris es una masa compacta de parásitos adultos entrelazados que causa obstrucción. El síndrome de Löffler es un conjunto de síntomas respiratorios asociados a migración larvaria. HPG significa huevos por gramo y es una unidad de medida de intensidad de infección. DALYs son años de vida ajustados por discapacidad. MDA es administración masiva de medicamentos.
 
 ---
 
-**Documento elaborado para fines académicos y de referencia en estudios parasitológicos.**
+Documento elaborado para fines académicos y de referencia en estudios parasitológicos.

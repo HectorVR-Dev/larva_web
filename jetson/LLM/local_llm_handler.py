@@ -21,6 +21,7 @@ class LLMHandler:
     def __init__(
         self,
         model_id: str = "Qwen/Qwen2.5-1.5B-Instruct",
+        vectorstore: Any = None,
         device_map: str = "auto",
         torch_dtype: str = "auto",
         load_in_4bit: bool = True,
@@ -31,6 +32,7 @@ class LLMHandler:
         trust_remote_code: bool = True,
         verbose: bool = False,
     ):
+        self.vectorstore = vectorstore
         self.model_id = model_id
         self.max_new_tokens = max_new_tokens
 
@@ -101,9 +103,61 @@ class LLMHandler:
             ("human", """TAREA: {task}
             RESPUESTA:"""),
         ])
-
         print("LLM cargado y listo.")
+        self.create_chain()
+        print("Cadena creada y lista.")
 
+
+
+    # ------------------------------------------------------------------ #
+    # NORMALIZACIÓN DE CONTEXTO VISUAL
+    # ------------------------------------------------------------------ #
+
+
+    # Normalización desde YOLO → categoría académica
+    CATEGORY_MAP = {
+        "nematode": "nematodo",
+        "cestodo": "cestodo",
+        "trematodo": "trematodo",
+    }
+
+    SPECIES_MAP = {
+        "ascaris_egg_fertile": "ascaris lumbricoides",
+        "ascaris_egg_infertile": "ascaris lumbricoides",
+        "trichuris_egg": "trichuris trichiura",
+        "fasciola_egg": "fasciola hepatica",
+        "taenia_egg": "taenia saginata",
+    }
+
+    def normalize_category(self, visual_context: list) -> str | None:
+        if not visual_context:
+            return None
+
+        for key, value in self.CATEGORY_MAP.items():
+            for item in visual_context:
+                if key in item[0]:
+                    return value
+        return None
+    
+    def normalize_species(self, visual_context: list) -> str | None:
+        if not visual_context:
+            return None
+        for key, value in self.SPECIES_MAP.items():
+            for item in visual_context:
+                if key in item[0]:
+                    return value
+        return None
+    
+    def normalize_visual_context(self, visual_context: list) -> str:
+        if not visual_context:
+            return "No se detectaron objetos relevantes en la imagen."
+
+        lines = []
+        for label, score in visual_context:
+            lines.append(f"Estas {score * 100:.1f}% seguro de observar: {label}")
+
+        return "\n".join(lines)
+    
     # ------------------------------------------------------------------ #
     # MÉTODOS PRINCIPALES
     # ------------------------------------------------------------------ #
@@ -111,22 +165,38 @@ class LLMHandler:
     # ------------------------------------------------------------------ #
     # MÉTODO 1: CREA LA CADENA (UNA VEZ)
     # ------------------------------------------------------------------ #
-    def create_chain(self, vector_db, k: int = 1, **search_kwargs):
+    def create_chain(self):
         """
-        Crea una cadena RAG reutilizable.
-        Usa 'task' como query para el retriever.
+        Crea una única chain reutilizable.
+        category, species, k, threshold
+        serán recibidos dinámicamente en cada pregunta.
         """
-        retriever = vector_db.get_retriever(k=k, **search_kwargs)
 
-        return (
+        def dynamic_retriever(inputs):
+            """
+            inputs contiene:
+                - task
+                - category
+                - species
+                - k
+                - score_threshold
+            """
+            return self.vectorstore.hybrid_search(
+                query=inputs["task"],
+                category=inputs.get("category"),
+                species=inputs.get("species"),
+                k=inputs.get("k"),
+                score_threshold=inputs.get("score_threshold")
+            )
+
+        def format_context(results):
+            # results = [(doc, score)]
+            return "\n\n".join([doc.page_content for doc, score in results])
+
+        self.chain = (
             {
-                # 1. Pasa el input completo
                 "input": RunnablePassthrough(),
-
-                # 2. Extrae 'task' para el retriever
-                "context": lambda x: retriever.invoke(x["task"]),
-
-                # 3. Pasa 'task' y 'visual_context' al prompt
+                "context": lambda x: format_context(dynamic_retriever(x)),
                 "task": lambda x: x["task"],
                 "visual_context": lambda x: x["visual_context"],
             }
@@ -140,23 +210,16 @@ class LLMHandler:
     # ------------------------------------------------------------------ #
     def ask(
         self,
-        task: str,
-        visual_context: str,
-        chain  # ← Cadena pre-creada con create_chain()
-    ) -> str:
-        """
-        Pregunta usando una cadena ya construida.
-        """
-        return chain.invoke({
+        task,
+        visual_context,
+        k=12,
+        score_threshold=0.55
+    ):
+        return self.chain.invoke({
             "task": task,
-            "visual_context": visual_context
+            "visual_context": self.normalize_visual_context(visual_context),
+            "category": self.normalize_category(visual_context),
+            "species": self.normalize_species(visual_context),
+            "k": k,
+            "score_threshold": score_threshold
         })
-    
-    def health_check(self) -> Dict[str, Any]:
-        """Verificación rápida del LLM."""
-        return {
-            "model_id": self.model_id,
-            "device": next(self.model.parameters()).device,
-            "max_new_tokens": self.max_new_tokens,
-            "status": "healthy"
-        }

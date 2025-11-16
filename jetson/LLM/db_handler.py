@@ -17,20 +17,6 @@ class DBHandler(Chroma):
     y búsqueda semántica híbrida (categoria → query).
     """
 
-    # Normalización desde YOLO → categoría académica
-    CATEGORY_MAP = {
-        "ascaris_egg": "ascaris lumbricoides",
-        "ascaris_egg_fertile": "ascaris lumbricoides",
-        "ascaris_egg_infertile": "ascaris lumbricoides",
-        "helminto_egg": "ascaris lumbricoides",
-        "nematode": "nematodo",
-        "cestodo": "cestodo",
-        "trematodo": "trematodo",
-        "trichuris_egg": "trichuris trichiura",
-        "fasciola_egg": "fasciola hepatica",
-        "taenia_egg": "taenia saginata",
-    }
-
     def __init__(self, persist_directory="./chroma_db"):
         if not os.path.exists(persist_directory):
             raise FileNotFoundError(
@@ -57,21 +43,6 @@ class DBHandler(Chroma):
 
         print(f"[DB] Base cargada desde {persist_directory}")
         print(f"[DB] Total docs: {self._collection.count()}")
-
-
-    # ------------------------------------------------------------------ #
-    # NORMALIZACIÓN DE CATEGORÍA
-    # ------------------------------------------------------------------ #
-    def normalize_category(self, visual_context: str) -> str | None:
-        if not visual_context:
-            return None
-        visual_context = visual_context.lower().strip()
-
-        for key, value in self.CATEGORY_MAP.items():
-            if key in visual_context:
-                return value
-
-        return None
 
 
     # ------------------------------------------------------------------ #
@@ -110,7 +81,7 @@ class DBHandler(Chroma):
     # ------------------------------------------------------------------ #
     # BÚSQUEDA HÍBRIDA (especie → query)
     # ------------------------------------------------------------------ #
-    def hybrid_search(self, query, vectorstore, category=None, species=None, score_threshold=0.55, k=20):
+    def hybrid_search(self, query, category=None, species=None, score_threshold=0.55, k=5):
         # 1. Filtro por metadata basado en detección YOLO
         metadata_filter = None
         if category:
@@ -119,46 +90,21 @@ class DBHandler(Chroma):
             metadata_filter = {"species": species}
 
         # 2. Similarity search con score
-        results = vectorstore.similarity_search_with_score(
+        results = self.similarity_search_with_score(
             query,
-            k=k,
+            k=20,
             filter=metadata_filter
         )
 
         # 3. Re-rank y filtrar por umbral
         filtered = [
             (doc, score) for doc, score in results
-            if score >= score_threshold
+            if score <= score_threshold
         ]
-
         # 4. Orden descendente por score
-        filtered.sort(key=lambda x: x[1], reverse=True)
-
+        #filtered.sort(key=lambda x: x[1])
         # 5. Devolver solo docs si se quiere
-        return filtered
-
-    def hybrid_query(self, query: str, visual_context: str | None, k: int = 4):
-        specie = self.normalize_category(visual_context)
-
-        # --- Caso 1: Se identifica especie (gracias a YOLO)
-        if specie:
-            print(f"[DB] Especie detectada: {specie} → búsqueda filtrada")
-
-            primary = self.search_by_metadata(query, {"species": specie}, k)
-
-            if len(primary) >= k:
-                return primary
-
-            # Si no alcanza → completamos con búsqueda general
-            remaining = k - len(primary)
-            fallback = super().similarity_search(query, k=remaining)
-
-            return primary + fallback
-
-        # --- Caso 2: No hay especie
-        print("[DB] Sin especie → búsqueda general")
-        return super().similarity_search(query, k=k)
-
+        return filtered[0:k]
 
     # ------------------------------------------------------------------ #
     # RETRIEVERS (para LCEL)
