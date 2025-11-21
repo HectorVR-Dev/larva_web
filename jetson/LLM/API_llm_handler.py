@@ -92,9 +92,7 @@ class OpenRouterLLMHandler:
             2. Busca información en contexto_chroma
             3. Da una respuesta coherente y clara"""),
 
-            ("human", """TAREA: {task}
-
-            RESPUESTA:"""),
+            ("human", """TAREA: {task}"""),
         ])
 
         print(f"✓ Handler remoto cargado: {model}")

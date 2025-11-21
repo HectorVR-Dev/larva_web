@@ -102,7 +102,7 @@ class DBHandler(Chroma):
             if score <= score_threshold
         ]
         # 4. Orden descendente por score
-        #filtered.sort(key=lambda x: x[1])
+        filtered.sort(key=lambda x: x[1], reverse=True)
         # 5. Devolver solo docs si se quiere
         return filtered[0:k]
 

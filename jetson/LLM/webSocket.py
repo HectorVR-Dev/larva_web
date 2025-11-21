@@ -6,22 +6,15 @@ import json
 from datetime import datetime
 
 from db_handler import DBHandler
-#from local_llm_handler import LLMHandler
-from API_llm_handler import OpenRouterLLMHandler as LLMHandler
+from local_llm_handler import LLMHandler
+#from API_llm_handler import OpenRouterLLMHandler as LLMHandler
 
 
 # 1. Carga DB y LLM
 db = DBHandler()
 
-llm = LLMHandler(
-    model="nvidia/nemotron-nano-12b-v2-vl:free",
-    verbose=True
-)
+llm = LLMHandler(vectorstore=db)
 
-
-
-# 2. CREA LA CADENA UNA VEZ
-chain = llm.create_chain(db, k=2)
 
 # Crear servidor Socket.IO
 sio = socketio.AsyncServer(
@@ -57,8 +50,9 @@ async def message(sid, data):
     global resp
     resp = llm.ask(
         task=messages[-1]['content'],
-        visual_context="Parasito Ascaris lumbricoides",
-        chain=chain
+        visual_context=[["trichuris_egg", 0.95]],
+        score_threshold=20,
+        k=5
     )
 
     print("Answer Model:")

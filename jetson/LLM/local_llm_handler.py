@@ -100,8 +100,7 @@ class LLMHandler:
             2. Busca información en contexto_chroma
             3. Sintetiza una respuesta coherente """),
             
-            ("human", """TAREA: {task}
-            RESPUESTA:"""),
+            ("human", """TAREA: {task}"""),
         ])
         print("LLM cargado y listo.")
         self.create_chain()
