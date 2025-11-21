@@ -72,7 +72,7 @@ tail
 # === ARCHIVOS DE PRUEBA LOCALES ===
 test/
 test_*/
-*.test.py
+*test.py
 local_test.py
 api_test.py
 yolo_test.py
