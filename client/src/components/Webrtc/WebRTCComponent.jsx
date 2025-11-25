@@ -99,7 +99,7 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
 
   // Función para zoom usando useCallback
   const handleZoom = useCallback((direction) => {
-    const zooms = { in: "z_R", out: "z_L" };
+    const zooms = { in: "z_R", out: "z_L", inf: "zf_R", outf: "zf_L" };
     const msg = zooms[direction];
     sendControlMessage(dataChannel, msg);
   }, [dataChannel]);
@@ -321,7 +321,7 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
 
         {/* Centro */}
         <div className="flex flex-col m-4 w-full max-w-3xl h-full">
-          {/* Contenedor para cámara 
+          {/* Contenedor para cámara */}
 
           <video
             ref={videoRef}
@@ -331,9 +331,7 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
             className="w-full aspect-[4/3] mb-1 border-2 border-gray-300 rounded-lg"
             onCanPlay={() => console.log("🚀 Video listo para reproducir")}
             onError={(e) => console.error("🔥 Error de video:", e.target.error)}
-          />*/}
-          <img className="w-full aspect-[4/3] mb-1 border-2 border-gray-300 rounded-lg" src="ascaris.jpg" alt="" />
-
+          />
 
           {/* Controles versión mobile centrados */}
           <div className=" flex justify-center items-center mt-2 w-auto">

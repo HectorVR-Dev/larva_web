@@ -7,7 +7,7 @@ class WebSocketService {
     this.messageHandlers = new Map();
   }
 
-  connect(url = 'http://localhost:8000') {
+  connect(url = 'http://192.168.55.1:8000') {
     this.socket = io(url, {
       transports: ['websocket'],
       reconnection: true,
@@ -32,23 +32,24 @@ class WebSocketService {
 
   sendMessage(conversation, botMessageId) {
     console.log('Socket connected?', this.socket?.connected);
-    
+
     if (!this.socket?.connected) {
-        throw new Error('WebSocket not connected');
+      throw new Error('WebSocket not connected');
     }
 
     const formattedMessages = conversation.messages?.map((msg) => ({
-        role: msg.role === "bot" ? "assistant" : "user",
-        content: msg.content,
+      role: msg.role === "bot" ? "assistant" : "user",
+      content: msg.content,
     }));
 
     console.log('Sending message:', { formattedMessages, botMessageId });
-    
+
     this.socket.emit('message', {
-        messages: formattedMessages,
-        messageId: botMessageId
+      messages: formattedMessages,
+      messageId: botMessageId,
+      vision_enabled: true,
     });
-}
+  }
 
   onStreamingResponse(handler) {
     this.socket.on('response_chunk', handler);

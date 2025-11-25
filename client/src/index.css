@@ -4,7 +4,7 @@
 @import "tailwindcss";
 
 :root {
-    --color-text-primary: #2A2A2A;
+  --color-text-primary: #2A2A2A;
   --color-text-secondary: #4A5565;
   --color-text-placeholder: #7F93B7;
   --color-bg-primary: #F3F7FF;
@@ -19,14 +19,13 @@
 }
 .app-container.dark-theme {
   /* Dark theme colors */
-  --color-text-primary: #EDF3FF;
-  --color-text-secondary: #D7E5FF;
-  --color-text-placeholder: #A0B1CF;
-  --color-bg-primary: #111827;
-  --color-bg-secondary: #233043;
-  --color-bg-sidebar: #1E2939;
-  --color-border-hr: #364153;
-  --color-hover-secondary: #33435B;
-  --color-hover-secondary-alt: #415472;
-  
+  --color-text-primary: #2A2A2A;
+  --color-text-secondary: #4A5565;
+  --color-text-placeholder: #7F93B7;
+  --color-bg-primary: #F3F7FF;
+  --color-bg-secondary: #E3EBF6;
+  --color-bg-sidebar: #E6EDF8;
+  --color-border-hr: #D9DBDD;
+  --color-hover-secondary: #D4DCED;
+  --color-hover-secondary-alt: #C9D4EA;
 }

@@ -7,15 +7,15 @@
 
 .chatbot-container {
   /* Dark theme colors */
-  --chatbot-color-text-primary: #EDF3FF;
-  --chatbot-color-text-secondary: #D7E5FF;
-  --chatbot-color-text-placeholder: #A0B1CF;
-  --chatbot-color-bg-primary: #111827;
-  --chatbot-color-bg-secondary: #233043;
-  --chatbot-color-bg-sidebar: #1E2939;
-  --chatbot-color-border-hr: #364153;
-  --chatbot-color-hover-secondary: #33435B;
-  --chatbot-color-hover-secondary-alt: #415472;
+  --chatbot-color-text-primary: #2A2A2A;
+  --chatbot-color-text-secondary: #4A5565;
+  --chatbot-color-text-placeholder: #7F93B7;
+  --chatbot-color-bg-primary: #F3F7FF;
+  --chatbot-color-bg-secondary: #E3EBF6;
+  --chatbot-color-bg-sidebar: #E6EDF8;
+  --chatbot-color-border-hr: #D9DBDD;
+  --chatbot-color-hover-secondary: #D4DCED;
+  --chatbot-color-hover-secondary-alt: #C9D4EA;
   --chatbot-gradient-blue-purple: linear-gradient(135deg, #193cb8 0%, #71757b 100%);
   --chatbot-sidebar-open-width: 260px;
   --chatbot-sidebar-closed-width: 80px;

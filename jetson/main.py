@@ -1,27 +1,116 @@
 import asyncio
 import cv2
 import socketio
-from aiortc import RTCPeerConnection, VideoStreamTrack, RTCSessionDescription, RTCIceCandidate, MediaStreamTrack, RTCConfiguration, RTCIceServer
-from av import VideoFrame
 import time
+import sys
+import zmq
+import numpy as np
+import concurrent.futures
 from fractions import Fraction
 import urllib3
+from aiortc import RTCPeerConnection, RTCSessionDescription, RTCIceCandidate, MediaStreamTrack, RTCConfiguration, RTCIceServer
 from aiortc.sdp import candidate_from_sdp
-import sys
-#import control as ctrl # Importar modulo de control
+from av import VideoFrame 
 
-ip = sys.argv[1]
+# Importar el módulo de control de motores
+import device.microscopio as ctrl
 
-#motorY = ctrl.Motor(ctrl.pines_MotorY)
-#motorX = ctrl.Motor(ctrl.pines_MotorX)
-#motorZ = ctrl.Motor(ctrl.pines_MotorZ)
-#
-#lampara = ctrl.Light_var(ctrl.Relee)
+# ==========================================
+# 1. CONFIGURACIÓN ZMQ (IPC - OPTIMIZADO)
+# ==========================================
+# Creamos el contexto global
+ctx = zmq.Context()
 
-# Deshabilitar advertencias de certificado SSL
+# Socket A: ESCUCHAR peticiones del LLM (Trigger)
+# El LLM se conecta a este archivo para pedir fotos
+zmq_trigger = ctx.socket(zmq.PULL)
+zmq_trigger.bind("ipc:///tmp/zmq_sockets/trigger_webrtc.ipc")
+
+# Socket B: ENVIAR frames a DeepStream (Docker)
+# El Docker escucha en este archivo
+zmq_sender = ctx.socket(zmq.PUSH)
+zmq_sender.connect("ipc:///tmp/zmq_sockets/input_deepstream.ipc")
+
+# Poller: Para revisar el socket A sin bloquear el video (Timeout=0)
+zmq_poller = zmq.Poller()
+zmq_poller.register(zmq_trigger, zmq.POLLIN)
+
+print("✅ ZMQ IPC Configurado: Esperando triggers del LLM...")
+
+# ==========================================
+# 2. CONFIGURACIÓN MOTORES (ASÍNCRONO)
+# ==========================================
+# Executor para que los motores no congelen el video
+# Max workers = 1 para que las órdenes se encolen y no se solapen caóticamente
+motor_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+
+motorY = ctrl.StepMotor([7,11,13,15], fc=31, dir_orig=1)
+motorX = ctrl.StepMotor([19,21,23,29], fc=33, dir_orig=1)
+motorFitZ = ctrl.StepMotor([24,26,32,36], fc=35, dir_orig=1)
+motorZ = ctrl.StepMotor_I2C([3,4,5,6], fc=35, dir_orig=1)
+motorLente = ctrl.stepMotor_chLente([12,16,18,22], fc=37, dir_orig=1)
+
+# Diccionario de Acciones
+acciones_motores = {
+    'y_R': lambda: motorY.step(5, 1),
+    'y_L': lambda: motorY.step(5, -1),
+    'x_R': lambda: motorX.step(5, 1),
+    'x_L': lambda: motorX.step(5, -1),
+    'z_R': lambda: motorZ.step(10, 1),
+    'z_L': lambda: motorZ.step(10, -1),
+    'zf_R': lambda: motorFitZ.step(10, 1),
+    'zf_L': lambda: motorFitZ.step(10, -1),
+    '1': lambda: motorLente.set_lente(1),
+    '2': lambda: motorLente.set_lente(2),
+    '3': lambda: motorLente.set_lente(3),
+    '4': lambda: motorLente.set_lente(4),
+    '5': lambda: motorLente.set_lente(5),
+}
+
+acciones_motores = {
+    "y_R"  :  lambda: ctrl.version(),
+    "y_L"  :  lambda: print("Y moving left"),
+    "x_R"  :  lambda: print("X moving right"),
+    "x_L"  :  lambda: print("X moving left"),
+    "z_R"  :  lambda: print("Z moving right"),
+    "z_L"  :  lambda: print("Z moving left"),
+    "zf_R" :  lambda: print("Z focus moving right"),
+    "zf_L" :  lambda: print("Z focus moving left"),
+    "1"    :  lambda: print("Lens set to 1"),
+    "2"    :  lambda: print("Lens set to 2"),
+    "3"    :  lambda: print("Lens set to 3"),
+    "4"    :  lambda: print("Lens set to 4"),
+    "5"    :  lambda: print("Lens set to 5"),
+}
+
+
+async def ejecutar_motor_async(tecla):
+    """
+    Ejecuta la lógica del motor en un hilo separado
+    para no bloquear el loop de video.
+    """
+    tecla_limpia = str(tecla).strip().strip("'\"")
+    funcion = acciones_motores.get(tecla_limpia)
+    
+    if funcion:
+        loop = asyncio.get_running_loop()
+        print(f"⚙️ Motor accionando: {tecla_limpia} (Async)")
+        # run_in_executor mueve la tarea bloqueante al thread pool
+        await loop.run_in_executor(motor_executor, funcion)
+    else:
+        print(f"❓ Tecla no mapeada: {tecla_limpia}")
+
+# ==========================================
+# 3. CONFIGURACIÓN WEBRTC Y SOCKETIO
+# ==========================================
+
+if len(sys.argv) > 1:
+    ip = sys.argv[1]
+else:
+    ip = "192.168.55.1" # Fallback por si olvidas el argumento
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Se ajustan los parámetros de reconexión para acelerar la reconexión
 sio = socketio.AsyncClient(
     reconnection_attempts=5,
     reconnection_delay=0.1,        
@@ -30,19 +119,14 @@ sio = socketio.AsyncClient(
 )
 ROOM_ID = "jetson-room"
 pc = None 
-control_channel = None
-# Nuevo: Lista para almacenar mensajes recibidos por el canal de datos
-received_messages = []
 
 class SignalingNamespace(socketio.AsyncClientNamespace):
     def on_connect(self):
         print("✅ Conectado al servidor de señalización (namespace /)")
         
     def on_disconnect(self):
-        
-        print("ℹ️ Desconexión transitoria (polling) del servidor")
+        print("ℹ️ Desconexión transitoria del servidor")
 
-# Registra el namespace y conecta
 sio.register_namespace(SignalingNamespace('/'))
 
 class VideoTrack(MediaStreamTrack):
@@ -52,7 +136,7 @@ class VideoTrack(MediaStreamTrack):
         super().__init__()
         self.cap = cv2.VideoCapture(0)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-        self.cap.set (cv2.CAP_PROP_FRAME_HEIGHT, 480)
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         
         if not self.cap.isOpened():
             raise RuntimeError("Error al abrir la cámara")
@@ -60,137 +144,111 @@ class VideoTrack(MediaStreamTrack):
         print("🔥 Cámara inicializada correctamente")
     
     async def recv(self):
-        loop = asyncio.get_running_loop()  # optimización: uso de get_running_loop()
+        """
+        Ciclo principal de captura.
+        Aquí es donde integramos el chequeo ZMQ
+        """
+        loop = asyncio.get_running_loop()
+        
+        # 1. Capturar frame (En executor para no bloquear IO)
         ret, frame = await loop.run_in_executor(None, self.cap.read)
         
         if not ret:
             print("🚨 Error capturando frame")
             return None
         
-        #print("📸 Frame capturado correctamente")
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV_I420)
-        video_frame = VideoFrame.from_ndarray(frame, format="yuv420p")
+        # --- ZMQ LOGIC (NON-BLOCKING) ---
+        # Verificamos si el LLM pidió una foto justo ahora
+        # timeout=0 es CRÍTICO para que el video no se trabe
+        socks = dict(zmq_poller.poll(timeout=0))
+        
+        if zmq_trigger in socks and socks[zmq_trigger] == zmq.POLLIN:
+            try:
+                # Leemos la petición del LLM
+                msg = zmq_trigger.recv_json()
+                req_id = msg.get('id', 'unknown')
+                print(f"📸 [ZMQ] Solicitud LLM recibida ID: {req_id}")
+                
+                # Codificamos a JPG para enviar al Docker (DeepStream)
+                # Usamos encode en lugar de write a disco para velocidad
+                _, buffer = cv2.imencode('.jpg', frame)
+                
+                # Enviamos Multipart: Metadata + Bytes de Imagen
+                zmq_sender.send_json({"id": req_id, "timestamp": time.time()}, flags=zmq.SNDMORE)
+                zmq_sender.send(buffer)
+                print(f"   -> Frame enviado a DeepStream")
+                
+            except zmq.ZMQError as e:
+                print(f"⚠️ Error ZMQ: {e}")
+        # --------------------------------
+        
+        # 2. Procesamiento para WebRTC (Convertir a YUV)
+        # Nota: cvtColor consume CPU, pero en Orin es manejable para SD
+        frame_yuv = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV_I420)
+        video_frame = VideoFrame.from_ndarray(frame_yuv, format="yuv420p")
+        
         now = time.time()
         video_frame.pts = int((now - self._start) * 90000)
         video_frame.time_base = Fraction(1, 90000)
+    
         return video_frame
     
     def __del__(self):
         if self.cap.isOpened():
             self.cap.release()
-            print("📷 Cámara liberada en destructor.")
         cv2.destroyAllWindows()
 
+# --- MANEJO DE SEÑALIZACIÓN (Ofertas/Respuestas) ---
 
 @sio.on("answer", namespace='/')
 async def on_answer(data):
-    print("📥 Respuesta recibida")
-    
-    if not data.get("sdp") or "m=" not in data["sdp"]:
-        print("❗ Respuesta SDP inválida, se ignora.")
-        return
     if pc and pc.signalingState == "have-local-offer":
-        answer = RTCSessionDescription(
-            sdp=data["sdp"],
-            type=data["type"]
-        )
-        try:
-            await pc.setRemoteDescription(answer)
-        except AttributeError as err:
-            if "'NoneType' object has no attribute 'media'" in str(err):
-                print("❗ SDP answer inválida, se ignora.")
-            else:
-                raise
-    else:
-        print("❗ Estado de señalización no permite establecer respuesta.")
+        answer = RTCSessionDescription(sdp=data["sdp"], type=data["type"])
+        await pc.setRemoteDescription(answer)
 
 @sio.on("candidate", namespace='/')
 async def on_candidate(data):
-    print("📡 Candidato recibido:", data)
     candidate = candidate_from_sdp(data["candidate"])
     candidate.sdpMid = data["sdpMid"]
     candidate.sdpMLineIndex = data["sdpMLineIndex"]
     await pc.addIceCandidate(candidate)
-    
 
 @sio.on("renegotiate", namespace='/')
 async def on_renegotiate(data):
     global pc
-    print("Renegociación solicitada por nuevo cliente.")
+    print("🔄 Renegociación solicitada")
     if pc is None or pc.signalingState == "closed":
-        print("RTCPeerConnection está cerrado, reinicializando...")
         pc = createPeerConnection()
     else:
-        print("Renegociación: reiniciando ICE en conexión existente")
         await pc.restartIce()
     offer = await pc.createOffer()
     await pc.setLocalDescription(offer)
     await sio.emit("offer", {
-         "offer": {
-           "sdp": pc.localDescription.sdp,
-           "type": pc.localDescription.type
-         },
+         "offer": {"sdp": pc.localDescription.sdp, "type": pc.localDescription.type},
          "room": ROOM_ID,
          "jetson": True
     }, namespace='/')
 
-def procesar_mensaje(mensaje):
-    match mensaje:
-        case "x_R":
-            print("Moviendo cámara a la derecha")
-            #motorX.step(1, 1)
-        case "x_L":
-            print("Moviendo cámara a la izquierda")
-            #motorX.step(1, -1)
-        case "y_R":
-            print("Moviendo cámara hacia arriba")
-            #motorY.step(1, 1)
-        case "y_L":
-            print("Moviendo cámara hacia abajo")
-            #motorY.step(1, -1)
-        case "z_R":
-            print("Haciendo zoom in")
-            #motorZ.step(1, 1)
-        case "z_L":
-            print("Haciendo zoom out")
-            #motorZ.step(1, -1)
-        case "turn on":
-            print("Encendiendo la cámara")
-            #lampara.encender(1)
-        case "turn off":
-            print("Apagando la cámara")
-            #lampara.apagar()
-        case "1":
-            print("Modo 1 activado")
-            #lampara.encender(1)
-        case "2":
-            print("Modo 2 activado")
-            #lampara.encender(2)
-        case "3":
-            print("Modo 3 activado")
-            #lampara.encender(3)
-        case _:
-            print(f"Mensaje no reconocido: {mensaje}")
+# --- DATA CHANNEL (CONTROL MOTORES) ---
 
 def on_control_message(msg):
-#Captura de mensajes en el canal de datos
-    received_messages.append(msg)
-    # Imprimir mensaje capturado, funcion por el momento 
-    print("Mensaje capturado:", msg)
-    procesar_mensaje(msg)
+    # Cuando llega un mensaje por el DataChannel de WebRTC
+    # Programamos la tarea asíncrona en el loop principal
+    # para no bloquear el hilo de red de aiortc
+    print(f"📩 Mensaje WebRTC recibido: {msg}")
+    asyncio.create_task(ejecutar_motor_async(msg))
 
 def createPeerConnection():
-    global control_channel
     config = RTCConfiguration(iceServers=[RTCIceServer(urls="stun:stun.l.google.com:19302")])
     pc_new = RTCPeerConnection(configuration=config)
     
-    pc_new.oniceconnectionstatechange = lambda: print(f"ICE state (jetson): {pc_new.iceConnectionState}")
+    # Añadimos el Track de Video modificado
     pc_new.addTrack(VideoTrack())
-    # Crear canal de datos "control"
-    control_channel = pc_new.createDataChannel("control")
-    control_channel.on("open", lambda: print("Canal de datos 'control' abierto"))
-    # Asignar handler para capturar mensajes en la lista
-    control_channel.on("message", on_control_message)
+    
+    # Configurar Canal de Datos
+    channel = pc_new.createDataChannel("control")
+    channel.on("open", lambda: print("🟢 Canal de datos 'control' abierto"))
+    channel.on("message", on_control_message)
     
     return pc_new
 
@@ -201,27 +259,30 @@ async def main():
         await sio.emit("join", {"room": ROOM_ID}, namespace='/')
         
         pc = createPeerConnection()
-        # Crear oferta inicial
         offer = await pc.createOffer()
         await pc.setLocalDescription(offer)
+        
         await sio.emit("offer", {
-            "offer": {
-                "sdp": pc.localDescription.sdp,
-                "type": pc.localDescription.type
-            },
+            "offer": {"sdp": pc.localDescription.sdp, "type": pc.localDescription.type},
             "room": ROOM_ID,
             "jetson": True
         }, namespace='/')
         
+        # Bucle infinito para mantener el script vivo
         while True:
             await asyncio.sleep(1)
+            
     finally:
         await sio.disconnect()
-
+        # Limpieza de recursos
+        ctx.term()
+        motor_executor.shutdown(wait=False)
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n🔌 Conexión cerrada")
-        sio.disconnect()
+        print("\n🔌 Desconectando y cerrando recursos...")
+    
+    finally:
+        ctrl.liberate()
