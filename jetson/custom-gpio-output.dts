@@ -1,0 +1,144 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    overlay-name = "Custom-GPIO-Output-Patch-Final";
+    jetson-header-name = "Jetson 40 Pin Header";
+    compatible = "nvidia,tegra234";
+
+    /* FRAGMENTO 1: Controlador Principal */
+    fragment@0 {
+        target = <&pinmux>;
+        __overlay__ {
+            pinctrl-names = "default";
+            pinctrl-0 = <&main_gpio_pins>;
+
+            main_gpio_pins: main_gpio_pins {
+                pin7 {
+                    nvidia,pins = "gsc_cc_gpio1_pcc1";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin13 {
+                    nvidia,pins = "spi3_sck_py0";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin19 {
+                    nvidia,pins = "spi3_mosi_py2";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin21 {
+                    nvidia,pins = "spi3_miso_py1";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin23 {
+                    nvidia,pins = "spi3_cs0_py3";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin12 {
+                    nvidia,pins = "i2s2_sclk_pbb0";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin16 {
+                    nvidia,pins = "spi3_cs1_py4";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin18 {
+                    nvidia,pins = "dp_aux_ch3_n_pn0";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin22 {
+                    nvidia,pins = "dp_aux_ch3_p_pn7";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin24 {
+                    nvidia,pins = "spi1_cs0_pz6";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin26 {
+                    nvidia,pins = "spi1_cs1_pz7";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin32 {
+                    nvidia,pins = "i2s2_dout_pbb2";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+            };
+        };
+    };
+
+    /* FRAGMENTO 2: Controlador AON */
+    fragment@1 {
+        target = <&pinmux_aon>;
+        __overlay__ {
+            pinctrl-names = "default";
+            pinctrl-0 = <&aon_gpio_pins>;
+
+            aon_gpio_pins: aon_gpio_pins {
+                pin11 {
+                    nvidia,pins = "uart3_tx_pcc5";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin15 {
+                    nvidia,pins = "touch_clk_pcc4";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin29 {
+                    nvidia,pins = "gen2_i2c_scl_pcc7";
+                    nvidia,function = "rsvd1"; 
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                pin36 {
+                    nvidia,pins = "uart3_rx_pcc6";
+                    nvidia,function = "rsvd1";
+                    nvidia,pull = <0x1>;
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+            };
+        };
+    };
+};
