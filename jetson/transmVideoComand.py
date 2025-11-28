@@ -44,61 +44,51 @@ print("✅ ZMQ IPC Configurado: Esperando triggers del LLM...")
 # Max workers = 1 para que las órdenes se encolen y no se solapen caóticamente
 motor_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 
-motorY = ctrl.StepMotor([7,11,13,15], fc=31, dir_orig=1)
-motorX = ctrl.StepMotor([19,21,23,29], fc=33, dir_orig=1)
-motorFitZ = ctrl.StepMotor([24,26,32,36], fc=35, dir_orig=1)
-motorZ = ctrl.StepMotor_I2C([3,4,5,6], fc=35, dir_orig=1)
-motorLente = ctrl.stepMotor_chLente([12,16,18,22], fc=37, dir_orig=1)
+pcf = ctrl.PCF8574_Manager(7,0x20)
+# --- 1. Configuración de Hardware (Tu código original) ---
+print("🔌 Inicializando hardware...")
+motorY = ctrl.StepMotor([7,11,13,15], fc=31 , dir_orig=-1)
+motorX = ctrl.StepMotor([19,21,23,29], fc=33, dir_orig=-1)
+motorZ = ctrl.StepMotor_I2C(pcf)
+motorFitZ = ctrl.StepMotor([24,26,32,36])
+motorLente = ctrl.StepMotor([12,16,18,22])
+light = ctrl.PotenciometerX9C(pcf)
 
-# Diccionario de Acciones
-acciones_motores = {
-    'y_R': lambda: motorY.step(5, 1),
-    'y_L': lambda: motorY.step(5, -1),
-    'x_R': lambda: motorX.step(5, 1),
-    'x_L': lambda: motorX.step(5, -1),
-    'z_R': lambda: motorZ.step(10, 1),
-    'z_L': lambda: motorZ.step(10, -1),
-    'zf_R': lambda: motorFitZ.step(10, 1),
-    'zf_L': lambda: motorFitZ.step(10, -1),
-    '1': lambda: motorLente.set_lente(1),
-    '2': lambda: motorLente.set_lente(2),
-    '3': lambda: motorLente.set_lente(3),
-    '4': lambda: motorLente.set_lente(4),
-    '5': lambda: motorLente.set_lente(5),
+comand_list = {
+    'y_R':  lambda: motorY.step(10, 1),
+    'y_L':  lambda: motorY.step(10, -1),
+    'x_R':  lambda: motorX.step(10, 1),
+    'x_L':  lambda: motorX.step(10, -1),
+    'z_R':  lambda: motorZ.step(10, 1),
+    'z_L':  lambda: motorZ.step(10, -1),
+    'zf_R': lambda: motorFitZ.step(20, 1),
+    'zf_L': lambda: motorFitZ.step(20, -1),
+    '1':    lambda: light.set_position(80),
+    '2':    lambda: light.set_position(90),
+    '3':    lambda: light.set_position(100),
 }
 
-acciones_motores = {
-    "y_R"  :  lambda: ctrl.version(),
-    "y_L"  :  lambda: print("Y moving left"),
-    "x_R"  :  lambda: print("X moving right"),
-    "x_L"  :  lambda: print("X moving left"),
-    "z_R"  :  lambda: print("Z moving right"),
-    "z_L"  :  lambda: print("Z moving left"),
-    "zf_R" :  lambda: print("Z focus moving right"),
-    "zf_L" :  lambda: print("Z focus moving left"),
-    "1"    :  lambda: print("Lens set to 1"),
-    "2"    :  lambda: print("Lens set to 2"),
-    "3"    :  lambda: print("Lens set to 3"),
-    "4"    :  lambda: print("Lens set to 4"),
-    "5"    :  lambda: print("Lens set to 5"),
-}
-
-
-async def ejecutar_motor_async(tecla):
+async def ejecutar_motor_async(comand):
     """
-    Ejecuta la lógica del motor en un hilo separado
-    para no bloquear el loop de video.
+    Envía la tarea al ThreadPool y espera a que termine
+    sin bloquear el Event Loop principal.
     """
-    tecla_limpia = str(tecla).strip().strip("'\"")
-    funcion = acciones_motores.get(tecla_limpia)
+    #cmd_clear = str(comand).strip().strip("'\"")
+    funcion = comand_list.get(comand)
     
     if funcion:
         loop = asyncio.get_running_loop()
-        print(f"⚙️ Motor accionando: {tecla_limpia} (Async)")
-        # run_in_executor mueve la tarea bloqueante al thread pool
+        #print(f"\n   ⚙️ [Hilo Secundario] Ejecutando comando: {comand}")
+        #start_time = time.time()
+        
         await loop.run_in_executor(motor_executor, funcion)
+    
+        #duration = time.time() - start_time
+        #print(f"   ✅ [Hilo Secundario] Motor {comand} terminó en {duration:.2f}s")
     else:
-        print(f"❓ Tecla no mapeada: {tecla_limpia}")
+        #print(f"   ❓ comand no reconocido: {comand}")
+        pass
+
 
 # ==========================================
 # 3. CONFIGURACIÓN WEBRTC Y SOCKETIO
@@ -107,7 +97,7 @@ async def ejecutar_motor_async(tecla):
 if len(sys.argv) > 1:
     ip = sys.argv[1]
 else:
-    ip = "192.168.55.1" # Fallback por si olvidas el argumento
+    ip = "192.168.55.1" # IP por defecto si no se pasa argumento
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -276,6 +266,7 @@ async def main():
         await sio.disconnect()
         # Limpieza de recursos
         ctx.term()
+        ctrl.liberate()
         motor_executor.shutdown(wait=False)
 
 if __name__ == "__main__":
@@ -283,6 +274,3 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("\n🔌 Desconectando y cerrando recursos...")
-    
-    finally:
-        ctrl.liberate()

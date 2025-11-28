@@ -59,7 +59,7 @@ async def get_visual_context(sid):
         
         # 2. Esperar resultado (Lento - DeepStream)
         # Usamos wait_for para no quedarnos colgados eternamente si falla la cámara
-        msg = await asyncio.wait_for(zmq_sockets['pull'].recv_json(), timeout=10.0)
+        msg = await asyncio.wait_for(zmq_sockets['pull'].recv_json(), timeout=20.0)
         print(f"👁️ [{sid}] Visión recibida para ID: {request_id}: {msg}")
         if msg.get('id') == request_id:
             return msg.get('detections', [])
@@ -128,6 +128,7 @@ async def message(sid, data):
     # PASO 3: Responder
     # Ya tenemos la respuesta en 'resp', enviamos al cliente.
     print(f"📤 Enviando respuesta...")
+    print(resp)
     
     await sio.emit('response_chunk', {'chunk': resp, 'messageId': message_id}, room=sid)
     await sio.emit('response_complete', {'messageId': message_id}, room=sid)

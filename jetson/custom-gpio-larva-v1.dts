@@ -1,0 +1,149 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    jetson-header-name = "Jetson 40pin Header";
+    overlay-name = "custom-gpio-larva-v1";
+    compatible = "nvidia,p3768-0000+p3767-0000\0nvidia,p3768-0000+p3767-0001\0nvidia,p3768-0000+p3767-0003\0nvidia,p3768-0000+p3767-0004\0nvidia,p3768-0000+p3767-0005\0nvidia,p3768-0000+p3767-0000-super\0nvidia,p3768-0000+p3767-0001-super\0nvidia,p3768-0000+p3767-0003-super\0nvidia,p3768-0000+p3767-0004-super\0nvidia,p3768-0000+p3767-0005-super\0nvidia,p3509-0000+p3767-0000\0nvidia,p3509-0000+p3767-0001\0nvidia,p3509-0000+p3767-0003\0nvidia,p3509-0000+p3767-0004\0nvidia,p3509-0000+p3767-0005";
+
+    fragment@0 {
+        target = <&pinmux>;
+
+        __overlay__ {
+            pinctrl-names = "default";
+            pinctrl-0 = <&jetson_io_pinmux>;
+            
+            jetson_io_pinmux: exp-header-pinmux {
+                hdr40-pin7 {
+                    nvidia,pins = "soc_gpio59_pac6";
+                    nvidia,function = "rsvd2";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                    nvidia,pull = <0x0>;
+                };
+                hdr40-pin11 {
+                    nvidia,pins = "uart1_rts_pr4";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin12 {
+                    nvidia,pins = "soc_gpio41_ph7";
+                    nvidia,function = "rsvd3";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin13 {
+                    nvidia,pins = "spi3_sck_py0";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin15 {
+                    nvidia,pins = "soc_gpio39_pn1";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin16 {
+                    nvidia,pins = "spi3_cs1_py4";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin18 {
+                    nvidia,pins = "spi3_cs0_py3";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin19 {
+                    nvidia,pins = "spi1_mosi_pz5";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin21 {
+                    nvidia,pins = "spi1_miso_pz4";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin22 {
+                    nvidia,pins = "spi3_miso_py1";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin23 {
+                    nvidia,pins = "spi1_sck_pz3";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin24 {
+                    nvidia,pins = "spi1_cs0_pz6";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin26 {
+                    nvidia,pins = "spi1_cs1_pz7";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin29 {
+                    nvidia,pins = "soc_gpio32_pq5";
+                    nvidia,function = "rsvd0";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin32 {
+                    nvidia,pins = "soc_gpio19_pg6";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+                hdr40-pin36 {
+                    nvidia,pins = "uart1_cts_pr5";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x0>;
+                    nvidia,enable-input = <0x0>;
+                };
+
+                /* --- ENTRADAS (Finales de Carrera) --- */
+                /* Agregamos nvidia,pull = <0x1> (Pull Down) */
+
+                hdr40-pin31 {
+                    nvidia,pins = "soc_gpio33_pq6";
+                    nvidia,function = "rsvd0";
+                    nvidia,tristate = <0x1>;
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x1>;
+                };
+                hdr40-pin33 {
+                    nvidia,pins = "soc_gpio21_ph0";
+                    nvidia,function = "rsvd0";
+                    nvidia,tristate = <0x1>;
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x1>;
+                };
+                hdr40-pin35 {
+                    nvidia,pins = "soc_gpio44_pi2";
+                    nvidia,function = "rsvd3";
+                    nvidia,tristate = <0x1>;
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x1>;
+                };
+                hdr40-pin37 {
+                    nvidia,pins = "spi3_mosi_py2";
+                    nvidia,function = "rsvd1";
+                    nvidia,tristate = <0x1>;
+                    nvidia,enable-input = <0x1>;
+                    nvidia,pull = <0x1>;
+                };
+	        };
+        };
+    };
+};

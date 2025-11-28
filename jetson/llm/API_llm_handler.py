@@ -34,7 +34,7 @@ class OpenRouterLLMHandler:
 
     def __init__(
         self,
-        model: str = "nvidia/nemotron-nano-12b-v2-vl:free",
+        model: str = "x-ai/grok-4.1-fast:free",
         temperature: float = 0.1,
         top_p: float = 0.7,
         repetition_penalty: float = 1.2,

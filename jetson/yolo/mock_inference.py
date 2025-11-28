@@ -57,7 +57,7 @@ def main():
 
             # --- NUEVO: GUARDAR IMAGEN EN DISCO ---
             # Guardamos la imagen para inspección visual
-            filename = f"test_received_{request_id}.jpg"
+            filename = f"data/test_received_{request_id}.jpg"
             cv2.imwrite(filename, frame)
             print(f"   💾 [DEBUG] Imagen guardada en disco: {filename}")
             # --------------------------------------

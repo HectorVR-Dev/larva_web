@@ -15,7 +15,7 @@ seq = [[1, 0, 0, 0], [1, 1, 0, 0], [0, 1, 0, 0], [0, 1, 1, 0],
 inv = seq[::-1]
 
 # Delay para I2C
-delay_I2C = 0.005
+delay_I2C = 0.003
 # Secuencia base (lógica 1-4). Se desplazará (shift) dentro de la clase.
 seq_base = [0x01, 0x03, 0x02, 0x06, 0x04, 0x0C, 0x08, 0x09]
 inv_base = seq_base[::-1]
@@ -30,10 +30,10 @@ class PCF8574_Manager:
     Esta clase mantiene el estado global de los 8 pines del PCF8574.
     Evita que el motor borre al potenciómetro y viceversa.
     """
-    def __init__(self, i2c_port=1, addr=0x27):
+    def __init__(self, i2c_port=7, addr=0x20):
         self.bus = smbus2.SMBus(i2c_port)
         self.addr = addr
-        self.current_state = 0xFF # Estado inicial (HIGH por defecto en PCF)
+        self.current_state = 0x00 # Estado inicial (HIGH por defecto en PCF)
         # Escribimos el estado inicial
         try:
             self.bus.write_byte(self.addr, self.current_state)
@@ -151,6 +151,7 @@ class StepMotor:
                 # Si tocamos FC y tratamos de ir hacia el origen (dir_orig), parar
                 if GPIO.input(self.fc) and direccion == self.dir_orig:
                      print(f"El {self.inf} fue detenido por su FC")
+                     print(self.cont)
                      return
 
             # Mover
@@ -161,6 +162,7 @@ class StepMotor:
                 for pin in range(4):
                     GPIO.output(self.pines[pin], current_seq[h][pin])
                 time.sleep(delay)
+        self.off()
 
     def origen(self):
         if self.fc is not None and self.dir_orig is not None:
@@ -177,6 +179,13 @@ class StepMotor:
             self.reset()
         else:
             print("No se ha definido final de carrera u origen")
+        
+        self.off()
+
+    def off(self):
+        for pin in range(4):
+            GPIO.output(self.pines[pin],0)
+            time.sleep(delay)
 
     def reset(self):
         self.cont = 0
@@ -226,6 +235,8 @@ class StepMotor_I2C:
             # Ejecutar secuencia de 8 micropasos
             for h in range(8):
                 self._write_step(current_seq[h])
+        
+        self.off()
 
     def origen(self): 
         if self.fc is not None:
@@ -239,6 +250,11 @@ class StepMotor_I2C:
             self.reset()
         else:
             print("No FC definido para Motor I2C")
+        
+        self.off()
+
+    def off(self):
+        self._write_step(0x00)
 
     def reset(self):
         self.cont = 0
@@ -252,9 +268,9 @@ class PotenciometerX9C:
         self._local_state = 0x07 # Todos en HIGH al inicio
         
         # Definición de bits (0, 1, 2)
-        self.PIN_INC = 0 
-        self.PIN_UD  = 1 
-        self.PIN_CS  = 2 
+        self.PIN_CS  = 0 
+        self.PIN_INC = 1 
+        self.PIN_UD  = 2
         
         # MÁSCARA DEL POTENCIOMETRO: Pines P0, P1, P2
         # Binary: 00000111 = 0x07
@@ -266,7 +282,7 @@ class PotenciometerX9C:
         # Inicializar: CS=1, INC=1, UD=1
         self._set_pins(cs=1, inc=1, ud=1)
         self.reset_to_minimum() # Calibrar a 0
-        self.set_position(50)   # Ir a medio camino
+        self.set_position(70)   # Ir a medio camino
 
     def _set_pins(self, cs=None, inc=None, ud=None):
         # Leemos el estado interno actual del manager (aunque aquí lo reconstruimos)
