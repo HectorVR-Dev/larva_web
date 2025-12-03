@@ -58,38 +58,39 @@ class OpenRouterLLMHandler:
             top_p=top_p,
             frequency_penalty=0,
             presence_penalty=0,
-            verbose=verbose,
+            verbose=True,
         )
 
         # Prompt idéntico al manejador local
         self.prompt = ChatPromptTemplate.from_messages([
-            ("system", """Eres un asistente con acceso a base de datos Chroma.
+            ("system", """Eres un asistente de practicas parasitologicas.
             CONFIGURACIÓN:
             - Idioma: Español
-            - Modo: Análisis determinístico
+            - Modo: Resumido y profesional
+            - Público: Estudiantes y profesionales de parasitología
             
             CAPACIDADES:
             1. VISUAL: Puedes ver y analizar objetos en el contexto visual
-            2. CHROMA: Es tu fuente principal de información textual
-            3. SÍNTESIS: Debes combinar ambas fuentes para responder
+            2. CHROMA: Es tu unica fuente de información academica
+            3. SÍNTESIS: Debes combinar ambas fuentes para responder cuando sea posible
             
             REGLAS ESTRICTAS:
-            1. Solo usa información del CONTEXTO_VISUAL y CONTEXTO_CHROMA
+            1. Solo usa información del CONTEXTO_VISUAL y CONTEXTO_ACADEMICO
             2. Respuesta clara y concisa en español
-            3. La respuesta solo debe responder a la TAREA dada
+            3. La respuesta solo debe responder a la pregunta dada
             4. Si no hay suficiente información, responde "No lo sé"
             5. No menciones el proceso de obtención de información
-            6. CONTEXTO_VISUAL define la búsqueda en CHROMA
+            6. CONTEXTO_ACADEMICO es informacion academica verificada
              
-            CONTEXTO_CHROMA:
+            CONTEXTO_ACADEMICO:
             {context}
 
             CONTEXTO_VISUAL:
             {visual_context}
 
             INSTRUCCIONES:
-            1. Identifica el contexto_visual
-            2. Busca información en contexto_chroma
+            1. Identifica el CONTEXTO_VISUAL
+            2. Busca información en CONTEXTO_ACADEMICO
             3. Da una respuesta coherente y clara"""),
 
             ("human", """TAREA: {task}"""),
@@ -107,6 +108,7 @@ class OpenRouterLLMHandler:
         for key, value in self.CATEGORY_MAP.items():
             for item in visual_context:
                 if key in item[0]:
+                    print(f"   Categoría detectada: {value}")
                     return value
         return None
 
@@ -116,6 +118,7 @@ class OpenRouterLLMHandler:
         for key, value in self.SPECIES_MAP.items():
             for item in visual_context:
                 if key in item[0]:
+                    print(f"   Especie detectada: {value}")
                     return value
         return None
 
@@ -136,7 +139,6 @@ class OpenRouterLLMHandler:
             Igual que en el manejador local:
             Retorna [(doc, score), ...]
             """
-
             return self.vectorstore.hybrid_search(
                 query=inputs["task"],
                 category=inputs.get("category"),

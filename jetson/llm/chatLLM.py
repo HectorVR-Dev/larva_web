@@ -33,7 +33,8 @@ def setup_zmq():
 
 # --- 2. CARGA DE RECURSOS ---
 db = DBHandler()
-llm = LLMHandler(vectorstore=db)
+llm = LLMHandler(model="nvidia/nemotron-nano-12b-v2-vl:free",
+                 vectorstore=db)
 
 # Servidor Socket.IO
 # ping_timeout alto para dar margen si la red está lenta, 
@@ -139,8 +140,8 @@ async def init_app():
     setup_zmq()
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, '0.0.0.0', 8000) # 0.0.0.0 para acceso externo
-    print("🚀 Backend LLM + Visión iniciado en puerto 8000")
+    site = web.TCPSite(runner, '0.0.0.0', 8005) # 0.0.0.0 para acceso externo
+    print("🚀 Backend LLM + Visión iniciado en puerto 8005")
     await site.start()
     await asyncio.Event().wait()
 

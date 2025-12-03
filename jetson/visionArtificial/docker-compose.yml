@@ -1,0 +1,17 @@
+services:
+  triton:
+    image: nvcr.io/nvidia/tritonserver:25.11-py3-igpu
+    container_name: triton_server
+    runtime: nvidia
+    network_mode: "host"
+    volumes:
+      - /home/labdatos/larva_web/jetson/visionArtificial/models:/models
+    command: "tritonserver --model-repository=/models"
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

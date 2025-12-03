@@ -10,6 +10,7 @@ langchain-openai>=0.1.25,<0.2.0
 # === SPLITTERS & VECTORSTORES ===
 langchain-text-splitters>=0.2.0,<0.3.0
 langchain-chroma>=0.1.0,<0.2.0
+tritonclient[http] >=2.63.0,<2.70.0
 
 # === Document Loaders ===
 unstructured[markdown]>=0.15.0,<0.19.0

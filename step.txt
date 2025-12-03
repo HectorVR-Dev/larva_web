@@ -1,0 +1,5 @@
+1. Docker Triton
+2. Servidor de Señalizacion WebSocket
+3. Servicio LLM + ChromaDB
+4. Cliente Pagina Web (Actualizar IP y Puerto)
+5. Main Webrtc(camara - control microscopio)

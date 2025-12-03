@@ -3,7 +3,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight, FaLongArrowAltUp, FaLongArrowA
 import { LuPower } from "react-icons/lu";
 import io from "socket.io-client";
 
-const SYSTEM_IP = import.meta.env.VITE_SYSTEM_IP || "192.168.98.102";
+const SYSTEM_IP = import.meta.env.VITE_SYSTEM_IP || "0.0.0.0";
 const SOCKET_URL = `${import.meta.env.VITE_PROTOCOL || "http"}://${SYSTEM_IP}:5000`;
 
 
@@ -70,7 +70,7 @@ export { sendControlMessage, useSocket };
 
 //-----------------------------------------------------
 
-const systemIp = import.meta.env.VITE_SYSTEM_IP || "192.168.98.102";
+const systemIp = import.meta.env.VITE_SYSTEM_IP || "0.0.0.0";
 const socket = io(`http://${systemIp}:5000`, {
   transports: ["websocket"],
   timeout: 3000

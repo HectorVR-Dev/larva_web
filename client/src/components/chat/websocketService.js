@@ -1,13 +1,15 @@
 // websocketService.js
 import { io } from 'socket.io-client';
 
+const systemIp = import.meta.env.VITE_SYSTEM_IP || "0.0.0.0";
+
 class WebSocketService {
   constructor() {
     this.socket = null;
     this.messageHandlers = new Map();
   }
 
-  connect(url = 'http://192.168.55.1:8000') {
+  connect(url = `http://${systemIp}:8005`) {
     this.socket = io(url, {
       transports: ['websocket'],
       reconnection: true,

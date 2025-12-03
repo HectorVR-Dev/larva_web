@@ -19,7 +19,11 @@ fi
 echo "Activando entorno virtual..."
 source venv/bin/activate || { echo "Error: No se pudo activar el entorno virtual"; exit 1; }
 
+
+
 # Iniciar el script Python en segundo plano
 echo "Iniciando jetson.py..."
 ip=$(hostname -I | awk '{print $1}')
-python3 test.py $ip
+Python transmVideoComand.py $ip > mi_log.log 2>&1 &
+
+Python transmVideoComand.py $ip > mi_log.log 2>&1 &
