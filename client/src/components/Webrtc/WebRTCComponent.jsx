@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { FaLongArrowAltLeft, FaLongArrowAltRight, FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
+import { FaAngleUp, FaAnglesUp, FaAngleDown, FaAnglesDown } from "react-icons/fa6";
+import { MdLightMode, MdOutlineLightMode } from "react-icons/md";
 import { LuPower } from "react-icons/lu";
 import io from "socket.io-client";
 
@@ -273,7 +275,7 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
       <div className=" flex flex-row w-full justify-center items-start mt-4">
 
         {/* Izquierda */}
-        <div className="flex flex-col p-1 items-center space-y-2">
+        <div className="flex flex-col p-1 items-center space-y-2 my-6">
           <button
             onClick={handleMainPower}
             className={`p-2 rounded-full transition-transform duration-300 ease-in-out text-white text-2xl ${powerOn
@@ -282,40 +284,39 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
               }`}
             disabled={!(videoRef.current && videoRef.current.srcObject)}
           >
-            <LuPower />
+            {powerOn ? <MdLightMode /> : <MdOutlineLightMode />}
           </button>
-
           {/* Botones adicionales mostrados solo si power está activo */}
           {powerOn && (
-          <div className="flex flex-col mt-2 space-y-3">
-            <button
-              onClick={() => handlePowerSelection("1")}
-              className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "1"
-                ? "bg-green-600 text-white hover:scale-125"
-                : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
-                }`}
-            >
-              1
-            </button>
-            <button
-              onClick={() => handlePowerSelection("2")}
-              className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "2"
-                ? "bg-green-600 text-white hover:scale-125"
-                : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
-                }`}
-            >
-              2
-            </button>
-            <button
-              onClick={() => handlePowerSelection("3")}
-              className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "3"
-                ? "bg-green-600 text-white hover:scale-125"
-                : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
-                }`}
-            >
-              3
-            </button>
-          </div>
+            <div className="flex flex-col mt-2 space-y-3">
+              <button
+                onClick={() => handlePowerSelection("1")}
+                className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "1"
+                  ? "bg-green-600 text-white hover:scale-125"
+                  : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
+                  }`}
+              >
+                1
+              </button>
+              <button
+                onClick={() => handlePowerSelection("2")}
+                className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "2"
+                  ? "bg-green-600 text-white hover:scale-125"
+                  : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
+                  }`}
+              >
+                2
+              </button>
+              <button
+                onClick={() => handlePowerSelection("3")}
+                className={`px-3 py-1 rounded-lg text-lg transition-transform duration-300 ease-in-out ${activeButton === "3"
+                  ? "bg-green-600 text-white hover:scale-125"
+                  : "bg-green-950 text-white hover:bg-green-700 hover:scale-125"
+                  }`}
+              >
+                3
+              </button>
+            </div>
           )}
         </div>
 
@@ -335,44 +336,57 @@ const WebRTCComponent = ({ isNavBarVisible, isChatVisible, handleToggleChat }) =
 
           {/* Controles versión mobile centrados */}
           <div className=" flex justify-center items-center mt-2 w-auto">
-            <div className="grid grid-cols-5 gap-2 w-full max-w-md">
-              {/* 1. Flecha arriba */}
-              <button onClick={() => handleMove("up")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
-                <FaLongArrowAltUp />
-              </button>
+            <div className="grid grid-cols-6 gap-2 w-full max-w-md">
               {/* 2. Flecha izquierda */}
               <button onClick={() => handleMove("left")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
                 <FaLongArrowAltLeft />
               </button>
-              {/* 3. Flecha abajo */}
-              <button onClick={() => handleMove("down")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
-                <FaLongArrowAltDown />
+              {/* 1. Flecha arriba */}
+              <button onClick={() => handleMove("up")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
+                <FaLongArrowAltUp />
               </button>
               {/* 4. Flecha derecha */}
               <button onClick={() => handleMove("right")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
                 <FaLongArrowAltRight />
               </button>
               {/* 5. Botón Z+ */}
-              <button onClick={() => handleZoom("in")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
-                Z+
+              <button onClick={() => handleZoom("inf")} className="col-start-5 bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
+                <FaAngleUp />
               </button>
-              {/* 7. Botón conectar: ocupa columnas 1 a 4 */}
+              {/* 5. Botón Z++ */}
+              <button onClick={() => handleZoom("in")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
+                <FaAnglesUp />
+              </button>
 
-              {!isConnected ? (
-                <button onClick={connect} className="col-span-4 px-3 py-1 bg-blue-600 text-white rounded-lg transition-transform duration-200 ease-in-out hover:bg-blue-700 hover:scale-110">Conectar</button>
-              ) : (
-                <button onClick={disconnect} className="col-span-4 px-3 py-1 bg-red-600 text-white rounded-lg transition-transform duration-200 ease-in-out hover:bg-red-700 hover:scale-110">Desconectar</button>
-              )}
+              {/* 3. Flecha abajo */}
+              <button onClick={() => handleMove("down")} className="col-start-2 bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-800 hover:scale-110">
+                <FaLongArrowAltDown />
+              </button>
 
               {/* 8. Botón Z-: se ubica en la columna 5 */}
-              <button onClick={() => handleZoom("out")} className="col-start-5 bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-700 hover:scale-110">
-                Z-
+              <button onClick={() => handleZoom("outf")} className="col-start-5 bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-700 hover:scale-110">
+                <FaAngleDown />
               </button>
+
+              {/* 8. Botón Z-: se ubica en la columna 5 */}
+              <button onClick={() => handleZoom("out")} className="bg-green-600 text-white rounded-lg text-xl px-3 py-1 transition-transform duration-200 ease-in-out hover:bg-green-700 hover:scale-110">
+                <FaAnglesDown />
+              </button>
+
             </div>
           </div>
         </div>
 
         {/* Derecha */}
+        <div className="flex flex-col p-1 items-center space-y-2 my-6">
+          {/*Botón conectar*/}
+          {!isConnected ? (
+            <button onClick={connect} className="col-span-4 px-3 py-3 bg-blue-600 text-white rounded-lg transition-transform duration-200 ease-in-out hover:bg-blue-700 hover:scale-110"><LuPower /></button>
+          ) : (
+            <button onClick={disconnect} className="col-span-4 px-3 py-3 bg-red-600 text-white rounded-lg transition-transform duration-200 ease-in-out hover:bg-red-700 hover:scale-110"><LuPower /></button>
+          )}
+        </div>
+
       </div>
     </div>
   );

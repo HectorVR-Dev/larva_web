@@ -179,17 +179,20 @@ const ChatBot = ({
     try {
       setIsLoading(true);
       accumulatedTextRef.current = '';
-      websocketService.sendMessage(conversation, botMessageId);
+      websocketService.sendMessage({
+        conversation,
+        visionEnabled: inference,
+        botMessageId,
+      });
     } catch (error) {
       setIsLoading(false);
       updateBotMessage(botMessageId, error.message, true);
     }
   };
 
-  // Generate AI response
   const generateResponse = async (conversation, botMessageId) => {
 
-    // Format messages for API
+
     const formattedMessages = conversation.messages?.map((msg) => ({
       role: msg.role === "bot" ? "model" : msg.role,
       parts: [{ text: msg.content }],

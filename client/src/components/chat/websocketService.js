@@ -32,11 +32,23 @@ class WebSocketService {
     return this.socket;
   }
 
-  sendMessage(conversation, botMessageId) {
+  sendMessage({ conversation, visionEnabled, botMessageId }) {
     console.log('Socket connected?', this.socket?.connected);
-
+    
     if (!this.socket?.connected) {
       throw new Error('WebSocket not connected');
+    }
+
+    if (typeof visionEnabled !== "boolean") {
+      throw new TypeError('visionEnabled must be a boolean');
+    }
+
+    if (!conversation || !conversation.messages) {
+      throw new Error('Invalid conversation format');
+    }
+
+    if (!botMessageId) {
+      throw new Error('botMessageId is required');
     }
 
     const formattedMessages = conversation.messages?.map((msg) => ({
@@ -49,7 +61,7 @@ class WebSocketService {
     this.socket.emit('message', {
       messages: formattedMessages,
       messageId: botMessageId,
-      vision_enabled: true,
+      vision_enabled: visionEnabled,
     });
   }
 

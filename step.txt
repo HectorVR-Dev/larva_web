@@ -1,5 +1,21 @@
 1. Docker Triton
+sudo docker run --runtime=nvidia --gpus all --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 -v /home/labdatos/larva_web/jetson/visionArtificial/models:/models nvcr.io/nvidia/tritonserver:25.11-py3-igpu tritonserver --model-repository=/models
+
+
 2. Servidor de Señalizacion WebSocket
+source /home/labdatos/larva_web/jetson/venv/bin/activate
+python /home/labdatos/larva_web/jetson/server/server.py 
+
 3. Servicio LLM + ChromaDB
+source /home/labdatos/larva_web/jetson/venv/bin/activate
+cd /home/labdatos/larva_web/jetson/llm/
+python chatLLM.py
+
 4. Cliente Pagina Web (Actualizar IP y Puerto)
+cd /home/labdatos/larva_web/client/
+npm run dev
+
 5. Main Webrtc(camara - control microscopio)
+source /home/labdatos/larva_web/jetson/venv/bin/activate
+cd /home/labdatos/larva_web/jetson/
+python main.py

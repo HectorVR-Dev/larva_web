@@ -88,31 +88,65 @@ async def disconnect(sid):
 @sio.event
 async def message(sid, data):
     """
-    Manejador principal. Es 'async', por lo que podemos usar 'await'
-    para pausar esta función sin detener el servidor.
+    Manejador principal. Recibe mensajes del cliente, opcionalmente obtiene contexto visual, 
+    consulta el LLM y responde.
     """
+
+    # Validación básica de datos
     print(f"\n📨 Mensaje de {sid}")
-    
     messages = data.get('messages', [])
     message_id = data.get('messageId')
-    vision_enabled = data.get('vision_enabled', False) # Boolean desde cliente
-    print(f"   Mensajes recibidos: {len(messages)} | Visión: {vision_enabled}")
+    raw_vision_enabled = data.get('vision_enabled', False)
+
+    # Validaciones - messageId
+    if not isinstance(message_id, str) or not message_id.strip():
+        await sio.emit('response_error', {
+            'error': 'messageId must be a non-empty string',
+            'messageId': None
+        }, room=sid)
+        return
     
-    visual_context = None
+    # Validaciones - vision_enabled
+    if not isinstance(raw_vision_enabled, bool):
+        await sio.emit('response_error', {
+            'error': 'vision_enabled must be a boolean',
+            'messageId': message_id
+        }, room=sid)
+        return    
+    vision_enabled = raw_vision_enabled
+
+    #Validaciones - messages
+    if not isinstance(messages, list) or not messages:
+        await sio.emit('response_error', {
+            'error': 'No messages provided',
+            'messageId': message_id
+        }, room=sid)
+        return
+    
+    last_message = messages[-1]
+    if not isinstance(last_message, dict):
+        await sio.emit('response_error', {
+            'error': 'Last message must be an object',
+            'messageId': message_id
+        }, room=sid)
+        return
+
+    user_query = last_message.get('content')    
+    if not isinstance(user_query, str) or not user_query.strip():
+        await sio.emit('response_error', {
+            'error': 'Last message content must be a non-empty string',
+            'messageId': message_id
+        }, room=sid)
+        return
 
     # PASO 1: Obtener contexto visual (Si se requiere)
+    visual_context = None
     if vision_enabled:
-        # Aquí 'await' pausa ESTA función, pero el servidor sigue vivo (pings ok)
         visual_context = await get_visual_context(sid)
         print(f"   Contexto visual obtenido: {visual_context}")
 
     # PASO 2: Consultar LLM
-    user_query = messages[-1]['content']
     print(f"🤖 Consultando LLM: '{user_query}'...")
-
-    # IMPORTANTE: run_in_executor
-    # Aunque la lógica es lineal, envolvemos la llamada al LLM en un hilo
-    # para evitar que el cálculo de vectores congele el heartbeat de socketio.
     loop = asyncio.get_running_loop()
     
     try:
@@ -122,12 +156,12 @@ async def message(sid, data):
             score_threshold=20,
             k=5
         ))
+        
     except Exception as e:
         resp = f"Error procesando solicitud: {str(e)}"
         print(f"❌ Error LLM: {e}")
 
     # PASO 3: Responder
-    # Ya tenemos la respuesta en 'resp', enviamos al cliente.
     print(f"📤 Enviando respuesta...")
     print(resp)
     

@@ -38,7 +38,7 @@ const PromptForm = ({ conversations, setConversations, activeConversation, gener
       const botMessage = {
         id: botMessageId,
         role: "bot",
-        content: "Just a sec...",
+        content: "Espera un momento...",
         loading: true,
       };
       // Only update the UI with the thinking message, not the conversation for API

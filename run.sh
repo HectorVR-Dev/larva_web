@@ -9,4 +9,3 @@ cd ../jetson || { echo "Error: No se pudo cambiar al directorio"; exit 1; }
 ./run.sh
 
 exit 0
-```

@@ -25,11 +25,8 @@ class OpenRouterLLMHandler:
     }
 
     SPECIES_MAP = {
-        "ascaris_egg_fertile": "ascaris lumbricoides",
-        "ascaris_egg_infertile": "ascaris lumbricoides",
         "trichuris_egg": "trichuris trichiura",
-        "fasciola_egg": "fasciola hepatica",
-        "taenia_egg": "taenia saginata",
+        "trichuris_larva": "trichuris trichiura",
     }
 
     def __init__(
