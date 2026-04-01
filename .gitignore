@@ -97,3 +97,6 @@ log.txt
 *.cache
 *.egg-info/
 *.dist-info/
+
+# === EXCLUSIONES ESPECÍFICAS DEL PROYECTO ===
+./backup
