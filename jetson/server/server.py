@@ -3,15 +3,24 @@ from flask_socketio import SocketIO, emit, join_room, leave_room  # <-- add impo
 from flask_cors import CORS
 import eventlet
 import ssl
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+allowed_origins_raw = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173")
+ALLOWED_ORIGINS = [origin.strip() for origin in allowed_origins_raw.split(",") if origin.strip()]
+
 app = Flask(__name__)
+
+
 
 socketio = SocketIO(
     app,
-    cors_allowed_origins="*",
+    cors_allowed_origins=ALLOWED_ORIGINS,
     async_mode="eventlet"  # Cambiado a eventlet para habilitar WebSocket
     
 )
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}})
 
 # Almacenamiento de ofertas y candidatos ICE
 temp_rooms = {}

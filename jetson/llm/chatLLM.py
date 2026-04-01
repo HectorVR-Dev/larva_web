@@ -45,7 +45,7 @@ sio.attach(app)
 
 active_sessions = {}
 
-# --- 3. HELPER: INFERENCIA VISUAL ---
+# Helper: Obtener contexto visual de forma asíncrona
 async def get_visual_context(sid):
     """
     Gestiona el ciclo de petición de visión de forma lineal
@@ -72,6 +72,13 @@ async def get_visual_context(sid):
     except Exception as e:
         print(f"❌ [{sid}] Error visión: {e}")
         return None
+    
+ # Helper: emit response errors
+async def emit_error(sid, message_id, error_text):
+    await sio.emit('response_error', {
+        'error': error_text,
+        'messageId': message_id
+    }, room=sid)
 
 # --- 4. EVENTOS SOCKET.IO ---
 
@@ -100,55 +107,42 @@ async def message(sid, data):
 
     # Validaciones - messageId
     if not isinstance(message_id, str) or not message_id.strip():
-        await sio.emit('response_error', {
-            'error': 'messageId must be a non-empty string',
-            'messageId': None
-        }, room=sid)
+        await emit_error(sid, message_id, 'messageId must be a non-empty string')
         return
-    
+        
     # Validaciones - vision_enabled
     if not isinstance(raw_vision_enabled, bool):
-        await sio.emit('response_error', {
-            'error': 'vision_enabled must be a boolean',
-            'messageId': message_id
-        }, room=sid)
-        return    
+        await emit_error(sid, message_id, 'vision_enabled must be a boolean')
+        return
     vision_enabled = raw_vision_enabled
 
     #Validaciones - messages
     if not isinstance(messages, list) or not messages:
-        await sio.emit('response_error', {
-            'error': 'No messages provided',
-            'messageId': message_id
-        }, room=sid)
+        await emit_error(sid, message_id, 'No messages provided')
         return
-    
     last_message = messages[-1]
     if not isinstance(last_message, dict):
-        await sio.emit('response_error', {
-            'error': 'Last message must be an object',
-            'messageId': message_id
-        }, room=sid)
+        await emit_error(sid, message_id, 'Last message must be an object')
         return
-
     user_query = last_message.get('content')    
     if not isinstance(user_query, str) or not user_query.strip():
-        await sio.emit('response_error', {
-            'error': 'Last message content must be a non-empty string',
-            'messageId': message_id
-        }, room=sid)
+        await emit_error(sid, message_id, 'Last message content must be a non-empty string')
         return
 
     # PASO 1: Obtener contexto visual (Si se requiere)
-    visual_context = None
+    visual_context = []
     if vision_enabled:
-        visual_context = await get_visual_context(sid)
+        try:
+            result = await get_visual_context(sid)
+            visual_context = result if result is not None else []
+        except Exception as e:
+            print(f"❌ Error obteniendo contexto visual: {e}")
+            visual_context = []
         print(f"   Contexto visual obtenido: {visual_context}")
 
     # PASO 2: Consultar LLM
     print(f"🤖 Consultando LLM: '{user_query}'...")
-    loop = asyncio.get_running_loop()
-    
+    loop = asyncio.get_running_loop()    
     try:
         resp = await loop.run_in_executor(None, lambda: llm.ask(
             task=user_query,
@@ -156,7 +150,7 @@ async def message(sid, data):
             score_threshold=20,
             k=5
         ))
-        
+
     except Exception as e:
         resp = f"Error procesando solicitud: {str(e)}"
         print(f"❌ Error LLM: {e}")
